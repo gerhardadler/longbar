@@ -40,6 +40,17 @@ p {
     border-radius: 15px;
     padding: 30px;
     margin: 0;
-    width: 45%
-    
+    width: 40%;
+    margin-top: 30px;
+}
+#information {
+    width: 50%;
+    float: left;
+    display: inline;
+}
+#tetris-computer {
+    width: 40%;
+    float: right;
+    display: inline;
+    margin: 0;
 }
