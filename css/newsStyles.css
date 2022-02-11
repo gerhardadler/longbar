@@ -9,6 +9,14 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+.content-guide {
+    background-color: #1c1c1c;
+    border-radius: 5px;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+}
 .title {
     margin: 0;
     color: #FF8920;
@@ -43,6 +51,13 @@ p {
     width: 40%;
     margin-top: 30px;
 }
+.content_sidebar {
+    background-color: #080808;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width: 15%;
+    padding: 15px;
+}
 #information {
     width: 50%;
     float: left;
@@ -53,4 +68,13 @@ p {
     float: right;
     display: inline;
     margin: 0;
+}
+.guides_title {
+    text-align: left;
+    color: #319FFC;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+#guide_title {
+    margin-bottom: 30px;
 }
