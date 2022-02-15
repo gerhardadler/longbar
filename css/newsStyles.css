@@ -78,3 +78,11 @@ p {
 #guide_title {
     margin-bottom: 30px;
 }
+@media only screen and (max-width: 600px){
+    .content-elements {
+        background-color:#1c1c1c;
+    }
+    .content {
+        background-color: #1c1c1c;
+    }
+}
