@@ -1,7 +1,6 @@
 .content {
     display: flex;
     background-color: #1c1c1c;
-    border-radius: 5px;
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
@@ -13,12 +12,12 @@
 .content-guide {
     margin-top: 100px;
     background-color: #1c1c1c;
-    border-radius: 5px;
     width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding: 30px;
-    height: 1000px;
+    height: auto;
+    
 }
 .title {
     margin: 0;
@@ -46,6 +45,10 @@ p {
 .content-elements-main {
     width: 45%
 }
+.parent-content-elements {
+    padding: 0;
+    margin: 0;
+}
 .content-elements {
     background-color: #080808;
     padding: 30px;
@@ -67,9 +70,8 @@ p {
 }
 #tetris-computer {
     width: 40%;
-    float: right;
-    display: inline;
-    margin: 0;
+    display: block;
+    
 }
 .guides_title {
     text-align: left;
@@ -87,6 +89,14 @@ p {
     .content {
         background-color: #1c1c1c;
         flex-direction: column;
+        width: 600px;
+    }
+    .categories {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .content-guide {
+        width: 600px;
     }
 }
 .white-sub-title {
@@ -106,6 +116,10 @@ p {
     cursor: pointer;
     transition-duration: 0.2s;
 }
+.categories {
+    display: flex;
+    justify-content: space-evenly;
+}
 .content-categories {
     display: flex;
     justify-content: space-evenly;
@@ -114,4 +128,16 @@ p {
 }
 .category:hover {
     background-color: white;
+}
+.main-content-guide {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.goToGuide {
+    background-color: #FF8920;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 225px;
+    height: 50px;
+    border: none
 }
