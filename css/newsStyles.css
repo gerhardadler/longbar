@@ -28,11 +28,7 @@
 .main-information {
     color: white;
 }
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url("../images/tetris_background.png");
-}
+
 p {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
