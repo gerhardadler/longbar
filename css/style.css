@@ -114,7 +114,6 @@ nav {
 .dropdown-guides div {
     color: white;
     padding: 0.7em 1em;
-    /* display: block; */
 }
 
 .dropdown-container:hover .dropdown-guides {
