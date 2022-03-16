@@ -179,6 +179,27 @@ nav {
     display: block;
 }
 
+@media only screen and (min-width: 900px) {
+    .navbar {
+        padding-top: 0.8em;
+        padding-bottom: 0.8em;
+    }
+
+    .nav-title {
+        font-size: 1.6rem;
+        margin-left: 3vw;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .navlinks {
+        display: block;
+        margin-right: 3vw;
+    }
+}
+
 
 /*=======================
 5. Footer
@@ -199,6 +220,21 @@ footer p {
 
 footer h3 {
     margin-bottom: 0.5em;
+}
+
+@media only screen and (min-width: 900px) {
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer h3:nth-child(2) {
+        text-align: right;
+    }
+
+    .footer ul {
+        text-align: right;
+    }
 }
 
 
@@ -236,95 +272,11 @@ footer h3 {
     margin-bottom: 25px;
 }
 
-
-/*=======================
-7. Guides
-=======================*/
-
-.guide-content {
-    display: flex;
-    flex-direction: column;
-    margin: 4vw auto;
-    width: 92vw;
-    background-color: var(--background-color-1);
-    box-sizing: border-box; /*to keep padding inside div*/
-    padding: 5vw;
-}
-
-.categories {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.category {
-    display: block;
-    background-color: var(--accent-color-2);
-    font-size: 1.2rem;
-    color: black;
-    font-weight: bold;
-    text-align: center;
-    padding: 0.7em 0;
-    width: calc(50% - 0.3em);
-    margin: 0.3em 0;
-    transition-duration: 0.2s;
-    border: none;
-}
-
-.category:hover {
-    background-color: white;
-}
-
-/*=======================
-?. Media queries
-=======================*/
-
 @media only screen and (min-width: 900px) {
-
-    /*Navbar*/
-
-    .navbar {
-        padding-top: 0.8em;
-        padding-bottom: 0.8em;
-    }
-
-    .nav-title {
-        font-size: 1.6rem;
-        margin-left: 3vw;
-    }
-
-    .hamburger {
-        display: none;
-    }
-
-    .navlinks {
-        display: block;
-        margin-right: 3vw;
-    }
-
-    /*Footer*/
-
-    .footer {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .footer h3:nth-child(2) {
-        text-align: right;
-    }
-
-    .footer ul {
-        text-align: right;
-    }
-
-    /*Index*/
-
     .index-content {
-        margin-top: 3vw;
-        margin-bottom: 3vw;
+        margin: 3vw auto;
         width: 94vw;
-        padding-left: 10vw;
-        padding-right: 10vw;
+        padding: 5vw 10vw;
         flex-direction: row;
         justify-content: space-between;
     }
@@ -339,6 +291,120 @@ footer h3 {
     }
 }
 
-@media only screen and (max-width: 280px) {
+
+/*=======================
+7. Guides
+=======================*/
+
+.guides-content {
+    display: flex;
+    flex-direction: column;
+    margin: 4vw auto;
+    width: 92vw;
+    background-color: var(--background-color-1);
+    box-sizing: border-box; /*to keep padding inside div*/
+    padding: 5vw;
+}
+
+.categories {
+    display: flex;
+    align-content: space-between;
+    gap: 0.6em;
+    flex-wrap: wrap;
+}
+
+.category {
+    display: block;
+    background-color: var(--accent-color-2);
+    font-size: 1.2rem;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.7em 1em;
+    white-space: nowrap;
+    flex-grow: 1;
+    flex-basis: 0px;
+    transition-duration: 0.2s;
+    border: none;
+}
+
+.category:hover {
+    background-color: white;
+}
+
+.guides-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    gap: 1.5em;
+}
+
+.guide {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.guide img {
+    object-fit: cover;
+}
+
+.guide p {
+    font-size: 1rem;
+}
+
+.guide-main {
+    background-color: var(--background-color-2);
+    padding: 1.5em;
+    padding-top: 0;
+}
+
+.guide-button {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    background-color: var(--accent-color-1);
+    color: black;
+    padding: 0.7em;
+}
+
+@media only screen and (min-width: 550px) and (max-width: 900px){
+    .guide {
+        flex-direction: row;
+        min-height: 350px;
+    }
+
+    .guide-main {
+        order: -1;
+    }
+
+    .guide img {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .guide {
+        width: calc(50% - 0.75em);
+    }
+
+    .guides-content {
+        margin: 2rem auto;
+        width: 800px;
+        padding: 2rem;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .guides-content {
+        margin: 3rem auto;
+        width: 1100px;
+        padding: 3rem;
+    }
+}
+
+/*For really small screen sizes*/
+@media only screen and (max-width: 310px) {
     :root {font-size: 14px;}
 }
