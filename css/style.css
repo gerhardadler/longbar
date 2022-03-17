@@ -7,7 +7,6 @@ Table of contents
 4. Navbar
 5. Footer
 6. Index
-?. Media queries
 */
 
 
@@ -16,7 +15,7 @@ Table of contents
     font-family: Arial, Helvetica, sans-serif;
     --accent-color-1: #FF8920;
     --accent-color-2: #319FFC;
-    --background-color-1: #1C1C1C;
+    --background-color-1: #1c1c1c;
     --background-color-2: #080808;
 }
 
@@ -38,7 +37,7 @@ h1 {
 }
 
 p {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 a {
@@ -120,12 +119,12 @@ nav {
     position: sticky;
     top: 0;
     padding: 1.5rem 0;
+    gap: 2.2rem;
 }
 
 .nav-title {
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 2.2rem;
     color: white;
     font-size: 1.8rem;
     font-family: Arial, Helvetica, sans-serif;
@@ -133,7 +132,6 @@ nav {
 }
 
 .hamburger {
-    margin-right: 2.2rem;
     height: 1.8rem;
     display: block;
 }
@@ -147,7 +145,6 @@ nav {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--accent-color-2);
     list-style-type: none;
-    margin-right: 2.2rem;
     padding: 0;
 } 
   
@@ -179,7 +176,7 @@ nav {
     display: block;
 }
 
-@media only screen and (min-width: 900px) {
+@media screen and (min-width: 900px) {
     .navbar {
         padding-top: 0.8em;
         padding-bottom: 0.8em;
@@ -209,9 +206,9 @@ footer {
     display: flex;
     flex-direction: column;
     background-color: var(--background-color-1);
-    padding: 1em;
-    padding-bottom: 2em;
-    line-height: 1.3em;
+    padding: 1rem 2.2rem;
+    padding-bottom: 2rem;
+    line-height: 1.3rem;
 }
 
 footer p {
@@ -222,7 +219,7 @@ footer h3 {
     margin-bottom: 0.5em;
 }
 
-@media only screen and (min-width: 900px) {
+@media screen and (min-width: 500px) {
     .footer {
         flex-direction: row;
         justify-content: space-between;
@@ -252,6 +249,10 @@ footer h3 {
     padding: 5vw;
 }
 
+.site-description {
+    font-size: 1.2rem;
+}
+
 .big-button-title {
     font-size: 1.8rem;
     margin-top: 2em;
@@ -272,22 +273,30 @@ footer h3 {
     margin-bottom: 25px;
 }
 
-@media only screen and (min-width: 900px) {
+@media screen and (min-width: 900px) {
     .index-content {
-        margin: 3vw auto;
-        width: 94vw;
-        padding: 5vw 10vw;
+        width: 800px;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
+        margin: 3rem auto;
+        padding: 3rem;
     }
 
     .index-content div:nth-child(1) {
-        width: 45%;
+        width: 40%;
         font-size: 1.3em;
     }
     
     .index-content div:nth-child(2) {
-        width: 45%;
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .index-content {
+        width: 1100px;
+        margin: 3rem auto;
+        padding: 3rem;
     }
 }
 
@@ -369,7 +378,8 @@ footer h3 {
     padding: 0.7em;
 }
 
-@media only screen and (min-width: 550px) and (max-width: 900px){
+@media screen and (min-width: 550px) and (max-width: 900px),
+       screen and (min-width: 1300px) {
     .guide {
         flex-direction: row;
         min-height: 350px;
@@ -384,7 +394,7 @@ footer h3 {
     }
 }
 
-@media only screen and (min-width: 900px) {
+@media screen and (min-width: 900px) {
     .guide {
         width: calc(50% - 0.75em);
     }
@@ -396,7 +406,7 @@ footer h3 {
     }
 }
 
-@media only screen and (min-width: 1300px) {
+@media screen and (min-width: 1300px) {
     .guides-content {
         margin: 3rem auto;
         width: 1100px;
@@ -405,6 +415,6 @@ footer h3 {
 }
 
 /*For really small screen sizes*/
-@media only screen and (max-width: 310px) {
+@media screen and (max-width: 310px) {
     :root {font-size: 14px;}
 }
