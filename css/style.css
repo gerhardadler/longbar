@@ -51,6 +51,22 @@ ul {
     padding: 0;
 }
 
+::-webkit-scrollbar {
+    width: 15px;
+  }
+
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #303030;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3d3d3d;
+}
+
 
 /*=======================
 2. Utilities
