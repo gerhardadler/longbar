@@ -1,12 +1,44 @@
-html {
+/*
+Table of contents
+========================
+1. General Styling
+2. Utilities
+3. Typography
+4. Navbar
+5. Footer
+6. Index
+7. Guides and category
+*/
+
+
+:root {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+    --accent-color-1: #FF8920;
+    --accent-color-2: #319FFC;
+    --background-color-1: #1c1c1c;
+    --background-color-2: #080808;
 }
+
+
+/*=======================
+1. General Styling
+=======================*/
 
 body {
 	background-image: url("../images/tetris-background.png");
 	margin: 0;
 	padding: 0;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-block-start: 0.4em;
+    margin-block-end: 0.1em;
+}
+
+p {
+    font-size: 1rem;
 }
 
 a {
@@ -18,6 +50,35 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+  }
+
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #353535;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #464646;
+}
+
+
+/*=======================
+2. Utilities
+=======================*/
+
+.orange {
+    color: var(--accent-color-1)
+}
+
+.blue {
+    color: var(--accent-color-2)
 }
 
 .white-hover-link, .orange-hover-link, .blue-hover-link {
@@ -44,29 +105,43 @@ ul {
 }
 
 .orange-hover-link:after {
-    background-color: #FF8920;
+    background-color: var(--accent-color-1)
 }
 
 .blue-hover-link:after {
-    background-color: #319FFC;
+    background-color: var(--accent-color-2)
 }
+
+
+/*=======================
+3. Typography
+=======================*/
+
+.blue-title {
+    font-size: 0.8em;
+    color: var(--accent-color-2)
+}
+
+
+/*=======================
+4. Navbar
+=======================*/
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-	  width: 100%;
-	  background-color: #1C1C1C;
+	width: 100%;
+	background-color: var(--background-color-1);
     position: sticky;
     top: 0;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding: 1.5rem 0;
+    gap: 2.2rem;
 }
 
 .nav-title {
     margin-top: 0;
     margin-bottom: 0;
-    margin-left: 2.2rem;
     color: white;
     font-size: 1.8rem;
     font-family: Arial, Helvetica, sans-serif;
@@ -74,7 +149,6 @@ nav {
 }
 
 .hamburger {
-    margin-right: 2.2rem;
     height: 1.8rem;
     display: block;
 }
@@ -86,9 +160,8 @@ nav {
 .navlinks {
     display: none;
     font-family: Arial, Helvetica, sans-serif;
-    color: #319FFC;
+    color: var(--accent-color-2);
     list-style-type: none;
-    margin-right: 2.2rem;
     padding: 0;
 } 
   
@@ -107,7 +180,7 @@ nav {
     padding-bottom: 0.5rem;
     transform: translateX(-1em);
     position: absolute;
-    background-color: #1C1C1C;
+    background-color: var(--background-color-1);
     min-width: 10rem;
 }
 
@@ -120,80 +193,7 @@ nav {
     display: block;
 }
 
-.index-content {
-    display: flex;
-    flex-direction: column;
-    margin-top: 4vw;
-    margin-bottom: 4vw;
-    margin-left: auto;
-    margin-right: auto;
-    width: 92vw;
-    background-color: #1C1C1C;
-    box-sizing: border-box; /*to keep padding inside div*/
-    padding: 5vw;
-}
-
-h1 {
-    font-size: 2.8rem;
-    margin-block-start: 0.4em;
-    margin-block-end: 0.1em;
-}
-
-.blue-title {
-    font-size: 0.8em;
-    color: #319FFC;
-}
-
-p {
-    font-size: 1.2rem;
-}
-
-.orange {
-    color: #FF8920;
-}
-
-.blue {
-    color: #319FFC;
-}
-
-.big-button-title {
-    font-size: 1.8rem;
-    margin-top: 2em;
-    margin-bottom: 0.7em;
-}
-
-.big-button {
-    display: block;
-    background-color: #FF8920;
-    font-size: 1.4rem;
-    color: black;
-    font-weight: bold;
-    padding: 1em;
-    text-align: center;
-}
-
-.big-button:last-child {
-    margin-bottom: 25px;
-}
-
-footer {
-    display: flex;
-    flex-direction: column;
-    background-color: #1C1C1C;
-    padding: 1em;
-    padding-bottom: 2em;
-    line-height: 1.3em;
-}
-
-footer p {
-    margin: 0;
-}
-
-footer h3 {
-    margin-bottom: 0.5em;
-}
-
-@media only screen and (min-width: 900px) {
+@media screen and (min-width: 900px) {
     .navbar {
         padding-top: 0.8em;
         padding-bottom: 0.8em;
@@ -212,26 +212,31 @@ footer h3 {
         display: block;
         margin-right: 3vw;
     }
+}
 
-    .index-content {
-        margin-top: 3vw;
-        margin-bottom: 3vw;
-        width: 94vw;
-        padding-left: 10vw;
-        padding-right: 10vw;
-        flex-direction: row;
-        justify-content: space-between;
-    }
 
-    .index-content div:nth-child(1) {
-        width: 45%;
-        font-size: 1.3em;
-    }
-    
-    .index-content div:nth-child(2) {
-        width: 45%;
-    }
+/*=======================
+5. Footer
+=======================*/
 
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color-1);
+    padding: 1rem 2.2rem;
+    padding-bottom: 2rem;
+    line-height: 1.3rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer h3 {
+    margin-bottom: 0.5em;
+}
+
+@media screen and (min-width: 500px) {
     .footer {
         flex-direction: row;
         justify-content: space-between;
@@ -246,6 +251,187 @@ footer h3 {
     }
 }
 
-@media only screen and (max-width: 280px) {
-    html {font-size: 14px;}
+
+/*=======================
+6. Index
+=======================*/
+
+.index-content {
+    display: flex;
+    flex-direction: column;
+    margin: 4vw auto;
+    width: 92vw;
+    background-color: var(--background-color-1);
+    box-sizing: border-box; /*to keep padding inside div*/
+    padding: 5vw;
+}
+
+.site-description {
+    font-size: 1.2rem;
+}
+
+.big-button-title {
+    font-size: 1.8rem;
+    margin-top: 2em;
+    margin-bottom: 0.7em;
+}
+
+.big-button {
+    display: block;
+    background-color: var(--accent-color-1);
+    font-size: 1.4rem;
+    color: black;
+    font-weight: bold;
+    padding: 1em;
+    text-align: center;
+}
+
+.big-button:last-child {
+    margin-bottom: 25px;
+}
+
+@media screen and (min-width: 900px) {
+    .index-content {
+        width: 800px;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 2rem auto;
+        padding: 2rem;
+    }
+
+    .index-content div:nth-child(1) {
+        width: 40%;
+        font-size: 1.3em;
+    }
+    
+    .index-content div:nth-child(2) {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .index-content {
+        width: 1100px;
+        margin: 3rem auto;
+        padding: 3rem;
+    }
+}
+
+
+/*=======================
+7. Guides and category
+=======================*/
+
+.guides-content {
+    display: flex;
+    flex-direction: column;
+    margin: 4vw auto;
+    width: 92vw;
+    background-color: var(--background-color-1);
+    box-sizing: border-box; /*to keep padding inside div*/
+    padding: 5vw;
+}
+
+.categories {
+    display: flex;
+    align-content: space-between;
+    gap: 0.6em;
+    flex-wrap: wrap;
+}
+
+.category {
+    display: block;
+    background-color: var(--accent-color-2);
+    font-size: 1.2rem;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.7em 1em;
+    white-space: nowrap;
+    flex-grow: 1;
+    flex-basis: 0px;
+    transition-duration: 0.2s;
+    border: none;
+}
+
+.category:hover {
+    background-color: white;
+}
+
+.guides-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    gap: 1.5em;
+}
+
+.guide {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.guide img {
+    object-fit: cover;
+}
+
+.guide p {
+    font-size: 1rem;
+}
+
+.guide-main {
+    background-color: var(--background-color-2);
+    padding: 1.5em;
+    padding-top: 0;
+}
+
+.guide-button {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    background-color: var(--accent-color-1);
+    color: black;
+    padding: 0.7em;
+}
+
+@media screen and (min-width: 550px) and (max-width: 900px),
+       screen and (min-width: 1300px) {
+    .guide {
+        flex-direction: row;
+        min-height: 350px;
+    }
+
+    .guide-main {
+        order: -1;
+    }
+
+    .guide img {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .guide {
+        width: calc(50% - 0.75em);
+    }
+
+    .guides-content {
+        margin: 2rem auto;
+        width: 800px;
+        padding: 2rem;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .guides-content {
+        margin: 3rem auto;
+        width: 1100px;
+        padding: 3rem;
+    }
+}
+
+/*For really small screen sizes*/
+@media screen and (max-width: 310px) {
+    :root {font-size: 14px;}
 }
