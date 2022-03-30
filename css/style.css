@@ -60,11 +60,11 @@ ul {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #303030;
+    background: #353535;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #3d3d3d;
+    background: #464646;
 }
 
 
