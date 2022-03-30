@@ -7,6 +7,7 @@ Table of contents
 4. Navbar
 5. Footer
 6. Index
+7. Guides and category
 */
 
 
@@ -294,8 +295,8 @@ footer h3 {
         width: 800px;
         flex-direction: row;
         justify-content: space-around;
-        margin: 3rem auto;
-        padding: 3rem;
+        margin: 2rem auto;
+        padding: 2rem;
     }
 
     .index-content div:nth-child(1) {
@@ -318,7 +319,7 @@ footer h3 {
 
 
 /*=======================
-7. Guides
+7. Guides and category
 =======================*/
 
 .guides-content {
