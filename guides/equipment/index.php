@@ -1,1 +1,1 @@
-<?php echo file_get_contents('/category/category-template.html'); ?>
+<?php echo file_get_contents('/guides/category-template.html'); ?>
