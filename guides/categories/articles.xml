@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<articles>
+    <article>
+        <title>LES DENNE ARTIKLEN</title>
+        <categories>equipment</categories>
+        <description>Beste beskrivelse begynner brått</description>
+        <main_text></main_text>
+        <img>/images/laptop-with-tetris.jpg</img>
+    </article>
+    <article>
+        <title>AAAAAAAAAAAAAARTIKKEL</title>
+        <categories>equipment</categories>
+        <description>Beskrivelse her jepp jepp jepp jepp jepp jepp</description>
+        <main_text></main_text>
+        <img>/images/laptop-with-tetris.jpg</img>
+    </article>
+     <article>
+        <title>Jesper</title>
+        <categories>equipment streaming</categories>
+        <description>JESSPPPPEPRPEPRPEPRPEPR</description>
+        <main_text></main_text>
+        <img>/images/laptop-with-tetris.jpg</img>
+    </article>
+</articles>

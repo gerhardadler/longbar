@@ -371,6 +371,11 @@ footer h3 {
     width: 100%;
 }
 
+.guide h2 {
+    word-break: break-word;
+    hyphens: auto;
+}
+
 .guide img {
     object-fit: cover;
 }
