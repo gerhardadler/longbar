@@ -373,7 +373,6 @@ footer h3 {
 
 .guide h2 {
     word-break: break-word;
-    hyphens: auto;
 }
 
 .guide img {
@@ -382,6 +381,7 @@ footer h3 {
 
 .guide p {
     font-size: 1rem;
+    word-break: break-word;
 }
 
 .guide-main {
@@ -419,6 +419,10 @@ footer h3 {
 @media screen and (min-width: 900px) {
     .guide {
         width: calc(50% - 0.75em);
+    }
+
+    .guide-main {
+        width: 50%;
     }
 
     .guides-content {

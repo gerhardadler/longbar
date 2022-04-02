@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-phpinfo();
 
 $page = file_get_contents('../categories/category-template.html');
 
