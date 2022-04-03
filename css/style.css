@@ -16,8 +16,8 @@ Table of contents
     font-family: Arial, Helvetica, sans-serif;
     --accent-color-1: #FF8920;
     --accent-color-2: #319FFC;
-    --background-color-1: #1c1c1c;
-    --background-color-2: #080808;
+    --background-color-1: #1f1f1f;
+    --background-color-2: #121212;
 }
 
 
@@ -142,7 +142,6 @@ nav {
     margin-left: 2rem;
     margin-top: 0;
     margin-bottom: 0;
-    color: white;
     font-size: 1.8rem;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -261,7 +260,7 @@ footer h3 {
     flex-direction: column;
     margin: 4vw auto;
     width: 92vw;
-    background-color: var(--background-color-1);
+    background-color: var(--background-color-2);
     box-sizing: border-box; /*to keep padding inside div*/
     padding: 5vw;
 }
@@ -327,7 +326,7 @@ footer h3 {
     flex-direction: column;
     margin: 4vw auto;
     width: 92vw;
-    background-color: var(--background-color-1);
+    background-color: var(--background-color-2);
     box-sizing: border-box; /*to keep padding inside div*/
     padding: 5vw;
 }
@@ -386,12 +385,14 @@ footer h3 {
     margin-block-end: 1.2em;
     font-size: 1rem;
     word-break: break-word;
+    color: white;
 }
 
 .guide-main {
     box-sizing: border-box;
-    background-color: var(--background-color-2);
-    padding: 2.5em 1.5em;
+    background-color: var(--background-color-1);
+    padding: 1.5em;
+    height: 100%;
 }
 
 .guide-button {
@@ -413,6 +414,7 @@ footer h3 {
 
     .guide-main {
         order: -1;
+        padding: 2.5em 1.5em;
     }
 
     .guide img {
@@ -430,7 +432,8 @@ footer h3 {
     }
 
     .guides-content {
-        margin: 2rem auto;
+        margin-top: none;
+        margin-bottom: 3rem;
         width: 800px;
         padding: 2rem;
     }
@@ -438,9 +441,8 @@ footer h3 {
 
 @media screen and (min-width: 1300px) {
     .guides-content {
-        margin: 3rem auto;
         width: 1100px;
-        padding: 3rem;
+        padding: 2rem 3rem;
     }
 }
 
