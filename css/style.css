@@ -6,8 +6,10 @@ Table of contents
 3. Typography
 4. Navbar
 5. Footer
-6. Index
-7. Guides and category
+6. Sitewide
+7. Index
+8. Guides and category
+8. Guide
 */
 
 
@@ -37,13 +39,13 @@ h1 {
     margin-block-end: 0.1em;
 }
 
-p {
-    font-size: 1rem;
-}
-
 a {
     color: inherit;
     text-decoration: inherit;
+}
+
+p {
+    font-size: 1.15rem;
 }
 
 ul {
@@ -228,6 +230,7 @@ footer {
 }
 
 footer p {
+    font-size: 1rem;
     margin: 0;
 }
 
@@ -252,10 +255,10 @@ footer h3 {
 
 
 /*=======================
-6. Index
+6. Sitewide
 =======================*/
 
-.index-content {
+.content {
     display: flex;
     flex-direction: column;
     margin: 4vw auto;
@@ -265,8 +268,34 @@ footer h3 {
     padding: 5vw;
 }
 
+@media screen and (min-width: 900px) {
+    .content {
+        margin-top: 0;
+        margin-bottom: 3rem;
+        width: 800px;
+        padding: 2rem;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .content {
+        width: 1100px;
+    }
+}
+
+
+/*=======================
+7. Index
+=======================*/
+
+.index-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .site-description {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .big-button-title {
@@ -290,46 +319,26 @@ footer h3 {
 }
 
 @media screen and (min-width: 900px) {
-    .index-content {
-        width: 800px;
+    .index-container {
         flex-direction: row;
         justify-content: space-around;
-        margin: 2rem auto;
-        padding: 2rem;
+        margin: 5rem 0;
     }
 
-    .index-content div:nth-child(1) {
+    .index-container div:nth-child(1) {
         width: 40%;
         font-size: 1.3em;
     }
     
-    .index-content div:nth-child(2) {
+    .index-container div:nth-child(2) {
         width: 40%;
-    }
-}
-
-@media screen and (min-width: 1300px) {
-    .index-content {
-        width: 1100px;
-        margin: 3rem auto;
-        padding: 3rem;
     }
 }
 
 
 /*=======================
-7. Guides and category
+8. Guides and category
 =======================*/
-
-.guides-content {
-    display: flex;
-    flex-direction: column;
-    margin: 4vw auto;
-    width: 92vw;
-    background-color: var(--background-color-2);
-    box-sizing: border-box; /*to keep padding inside div*/
-    padding: 5vw;
-}
 
 .categories {
     display: flex;
@@ -368,6 +377,7 @@ footer h3 {
     display: flex;
     flex-direction: column;
     width: 100%;
+    font-size: 1.1rem;
 }
 
 .guide h2 {
@@ -383,7 +393,6 @@ footer h3 {
 .guide p {
     margin-block-start: 1.2em;
     margin-block-end: 1.2em;
-    font-size: 1rem;
     word-break: break-word;
     color: white;
 }
@@ -396,7 +405,7 @@ footer h3 {
 }
 
 .guide-button {
-    font-size: 1.2rem;
+    font-size: 1.2em;
     font-weight: bold;
     text-align: center;
     display: block;
@@ -430,21 +439,40 @@ footer h3 {
     .guide {
         width: calc(50% - 0.75em);
     }
-
-    .guides-content {
-        margin-top: none;
-        margin-bottom: 3rem;
-        width: 800px;
-        padding: 2rem;
-    }
 }
 
-@media screen and (min-width: 1300px) {
-    .guides-content {
-        width: 1100px;
-        padding: 2rem 3rem;
-    }
+
+/*=======================
+8. Guide-page
+=======================*/
+
+.guide-page-content {
+    padding: 0 1rem;
 }
+
+.guide-page-info {
+    font-size: 1rem;
+}
+
+.guide-page-title {
+    color: var(--accent-color-1);
+}
+
+.guide-page-description {
+    font-size: 1.4rem;
+}
+
+.guide-page-main-text {
+    margin-top: 4rem;
+    padding: 0 5rem;
+}
+
+.guide-page-main-text h2{
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--accent-color-2);
+}
+
 
 /*For really small screen sizes*/
 @media screen and (max-width: 310px) {
