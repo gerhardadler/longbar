@@ -30,12 +30,6 @@
             <div class="guide-page-content">
                 <h1 class="guide-page-title">Join communities</h1>
 
-                <div class="guide-page-info">
-                    <text>By: Clint Eastwood</text>
-                    <date>Published: 03.04.22</date>
-                    <button>Share</button>
-                </div>
-                
                 <p class="guide-page-description">
                     Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                     Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et
@@ -43,8 +37,25 @@
                     Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
                 </p>
 
-                <div class="guide-page-main-text">
+                <div class="guide-page-info">
+                    <div>
+                        By: Clint Eastwood<br>
+                        Published: <time datetime="2022-4-6">6 April 2022</time>
+                    </div>
+                    <a class="blue-hover-link" href="" id="fb_share" target="_blank"><i class="fa-brands fa-facebook-square"></i> Share on Facebook</a>
 
+                    <script>
+                        window.onload = function() {
+                            fb_share.href ='https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href); 
+                        }  
+                    </script>
+                </div>
+
+                <div class="guide-page-main-text">
+                    
+                    <img src="/images/laptop-with-tetris.jpg">
+                    <p class="img-description">This image is kinda cool yeah</p>
+                    <hr>
                     <h2>
                         - Ikke billig
                     </h2>
@@ -85,9 +96,9 @@
                         - Vi har brukt lang tid på de fleste av kravene, men jeg vil si at dette er stang inn og ingen krav kan jeg si har vært avvist, legger Eggum til.
                     </p>
 
-                    <h2>
+                    <h3>
                         Unngår streik
-                    </h2>
+                    </h3>
 
                     <p>
                         I alt var det varslet at 27.600 medlemmer i Fellesforbundet og 1.000 medlemmer i Parat kunne ha blitt tatt ut i streik, noe som blant annet ville ha rammet industribedrifter på Vestlandet hardt.
