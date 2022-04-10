@@ -20,10 +20,13 @@ Table of contents
     --opposite-text-color: #ffffff;
     --dim-text-color: #2b2b2b;
     --accent-color-1: #ff8920;
+    --accent-text-color-1: #dd6f10;
     --accent-color-2: #319ffc;
+    --accent-text-color-2: #1974c0;
     --background-color-1: #ffffff;
     --background-color-2: #dce8ff;
     --opposite-background-color: #2b2b2b;
+    word-wrap: break-word;
 }
 
 
@@ -38,9 +41,14 @@ body {
 }
 
 h1 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
+    font-family: museo-slab, serif;
     margin-block-start: 0.4em;
     margin-block-end: 0.1em;
+}
+
+h2 {
+    font-family: museo-slab, serif;
 }
 
 a {
@@ -80,19 +88,19 @@ ul {
 =======================*/
 
 .orange {
-    color: var(--accent-color-1);
+    color: var(--accent-text-color-1);
 }
 
 .blue {
-    color: var(--accent-color-2);
+    color: var(--accent-text-color-2);
 }
 
-.main-hover-link, .opposite-hover-link, .orange-hover-link, .blue-hover-link {
+.hover-link {
     position: relative;
     display: inline-block;
 }
 
-.main-hover-link:after , .opposite-hover-link:after, .orange-hover-link:after, .blue-hover-link:after {
+.hover-link:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -100,28 +108,16 @@ ul {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: var(--text-color);
+    color: inherit;
+    background-color: currentColor;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
 
-.main-hover-link:hover:after, .opposite-hover-link:hover:after, .orange-hover-link:hover:after, .blue-hover-link:hover:after {
+.hover-link:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
-
-.opposite-hover-link:after {
-    background-color: var(--opposite-text-color);
-}
-
-.orange-hover-link:after {
-    background-color: var(--accent-color-1);
-}
-
-.blue-hover-link:after {
-    background-color: var(--accent-color-2);
-}
-
 
 /*=======================
 3. Typography
@@ -129,7 +125,7 @@ ul {
 
 .blue-title {
     font-size: 0.8em;
-    color: var(--accent-color-2)
+    color: var(--accent-text-color-2)
 }
 
 
@@ -367,7 +363,7 @@ footer h3 {
     display: block;
     background-color: var(--accent-color-2);
     font-size: 1.2rem;
-    color: black;
+    color: var(--text-color);
     font-weight: bold;
     text-align: center;
     padding: 0.7em 1em;
@@ -399,7 +395,6 @@ footer h3 {
 .guide h2 {
     margin-block-start: 0;
     margin-block-end: 0;
-    word-break: break-word;
 }
 
 .guide img {
@@ -409,7 +404,6 @@ footer h3 {
 .guide p {
     margin-block-start: 1em;
     margin-block-end: 1.2em;
-    word-break: break-word;
     color: var(--text-color);
 }
 
@@ -463,7 +457,7 @@ footer h3 {
 =======================*/
 
 .guide-page-title {
-    color: var(--accent-color-1);
+    color: var(--accent-text-color-2);
 }
 
 .guide-page-info {
@@ -472,7 +466,7 @@ footer h3 {
 }
 
 #fb_share {
-    color: var(--accent-color-2);
+    color: var(--accent-text-color-2);
 }
 
 .guide-page-description {
@@ -485,15 +479,14 @@ footer h3 {
 
 .guide-page-main-text h2 {
     margin-block-end: 0;
-    font-size: 1.8em;
-    font-weight: bold;
-    color: var(--accent-color-2);
+    font-size: 1.9em;
+    color: var(--accent-text-color-2);
 }
 
 .guide-page-main-text h3 {
     margin-block-end: 0;
     font-size: 1.6em;
-    color: var(--accent-color-2);
+    color: var(--accent-text-color-2);
 }
 
 .guide-page-main-text img {
