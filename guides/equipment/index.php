@@ -7,7 +7,7 @@ $guide_template = '
                     <div class="guide">
                         <img class="guide-img" src="[guide_img]">
                         <div class="guide-main">
-                            <h2 class="blue">[guide_title]</h2>
+                            <h2>[guide_title]</h2>
                             <p>
                                 [guide_description]
                             </p>

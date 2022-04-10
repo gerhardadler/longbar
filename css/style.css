@@ -16,12 +16,14 @@ Table of contents
 :root {
     color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
-    --text-color: #e7f5ff;
-    --dim-text-color: #a5aabe;
-    --accent-color-1: #FF8920;
-    --accent-color-2: #319FFC;
-    --background-color-1: #1f1f1f;
-    --background-color-2: #121212;
+    --text-color: #1c212d;
+    --opposite-text-color: #ffffff;
+    --dim-text-color: #2b2b2b;
+    --accent-color-1: #ff8920;
+    --accent-color-2: #319ffc;
+    --background-color-1: #ffffff;
+    --background-color-2: #dce8ff;
+    --opposite-background-color: #2b2b2b;
 }
 
 
@@ -61,15 +63,15 @@ ul {
   }
 
 ::-webkit-scrollbar-track {
-    background: black;
+    background: var(--opposite-background-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #353535;
+    background: #454545;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #464646;
+    background: #575757;
 }
 
 
@@ -85,12 +87,12 @@ ul {
     color: var(--accent-color-2);
 }
 
-.white-hover-link, .orange-hover-link, .blue-hover-link {
+.main-hover-link, .opposite-hover-link, .orange-hover-link, .blue-hover-link {
     position: relative;
     display: inline-block;
 }
 
-.white-hover-link:after, .orange-hover-link:after, .blue-hover-link:after {
+.main-hover-link:after , .opposite-hover-link:after, .orange-hover-link:after, .blue-hover-link:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -103,17 +105,21 @@ ul {
     transition: transform 0.25s ease-out;
   }
 
-.white-hover-link:hover:after, .orange-hover-link:hover:after, .blue-hover-link:hover:after {
+.main-hover-link:hover:after, .opposite-hover-link:hover:after, .orange-hover-link:hover:after, .blue-hover-link:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
 
+.opposite-hover-link:after {
+    background-color: var(--opposite-text-color);
+}
+
 .orange-hover-link:after {
-    background-color: var(--accent-color-1)
+    background-color: var(--accent-color-1);
 }
 
 .blue-hover-link:after {
-    background-color: var(--accent-color-2)
+    background-color: var(--accent-color-2);
 }
 
 
@@ -136,7 +142,7 @@ nav {
     justify-content: space-between;
     align-items: center;
 	width: 100%;
-	background-color: var(--background-color-1);
+	background-color: var(--opposite-background-color);
     position: sticky;
     top: 0;
     padding: 1.5rem 0;
@@ -144,6 +150,7 @@ nav {
 }
 
 .nav-title {
+    color: var(--opposite-text-color);
     margin-left: 2rem;
     margin-top: 0;
     margin-bottom: 0;
@@ -164,6 +171,7 @@ nav {
 
 .navlinks {
     margin-right: 2rem;
+    font-size: 1.2rem;
     display: none;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--accent-color-2);
@@ -186,12 +194,12 @@ nav {
     padding-bottom: 0.5rem;
     transform: translateX(-1em);
     position: absolute;
-    background-color: var(--background-color-1);
+    background-color: var(--opposite-background-color);
     min-width: 10rem;
 }
 
 .dropdown-guides div {
-    color: var(--text-color);
+    color: var(--opposite-text-color);
     padding: 0.7em 1em;
 }
 
@@ -226,7 +234,8 @@ nav {
 footer {
     display: flex;
     flex-direction: column;
-    background-color: var(--background-color-1);
+    background-color: var(--opposite-background-color);
+    color: var(--opposite-text-color);
     padding: 1rem 2.2rem;
     padding-bottom: 2rem;
     line-height: 1.3rem;
@@ -261,18 +270,22 @@ footer h3 {
 6. Sitewide
 =======================*/
 
-.content {
+.content, .content-darker {
     display: flex;
     flex-direction: column;
     margin: 4vw auto;
     width: 92vw;
-    background-color: var(--background-color-2);
+    background-color: var(--background-color-1);
     box-sizing: border-box; /*to keep padding inside div*/
     padding: 5vw;
 }
 
+.content-darker {
+    background-color: var(--background-color-2);
+}
+
 @media screen and (min-width: 900px) {
-    .content {
+    .content, .content-darker {
         margin-top: 0;
         margin-bottom: 3rem;
         width: 800px;
@@ -281,7 +294,7 @@ footer h3 {
 }
 
 @media screen and (min-width: 1300px) {
-    .content {
+    .content, .content-darker {
         width: 1100px;
     }
 }
@@ -366,7 +379,7 @@ footer h3 {
 }
 
 .category:hover {
-    background-color: var(--text-color);
+    background-color: var(--background-color-1);
 }
 
 .guides-container {
@@ -394,7 +407,7 @@ footer h3 {
 }
 
 .guide p {
-    margin-block-start: 1.2em;
+    margin-block-start: 1em;
     margin-block-end: 1.2em;
     word-break: break-word;
     color: var(--text-color);
@@ -426,7 +439,7 @@ footer h3 {
 
     .guide-main {
         order: -1;
-        padding: 2.5em 1.5em;
+        padding: 2.5em 1.8em;
     }
 
     .guide img {
@@ -449,23 +462,16 @@ footer h3 {
 9. Guide-page
 =======================*/
 
-.guide-page-content {
-}
-
 .guide-page-title {
     color: var(--accent-color-1);
 }
 
 .guide-page-info {
     font-size: 1rem;
-    display: flex;
-    flex-direction: row;
     width: 100%;
 }
 
 #fb_share {
-    display: block;
-    margin-left: auto;
     color: var(--accent-color-2);
 }
 
@@ -475,7 +481,6 @@ footer h3 {
 
 .guide-page-main-text {
     margin-top: 4rem;
-    padding: 0 5rem;
 }
 
 .guide-page-main-text h2 {
@@ -509,69 +514,26 @@ footer h3 {
     color: var(--dim-text-color);
 }
 
-/*
-
-.guide-page-content {
-    padding: 0 1rem;
+@media screen and (min-width: 900px) {
+    .guide-page-content {
+        padding: 0 1rem;
+    }
+    
+    .guide-page-main-text {
+        padding: 0 5rem;
+    }
 }
 
-.guide-page-title {
-    color: var(--accent-color-1);
-}
 
-.guide-page-info {
-    font-size: 1rem;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
+/*=======================
+9. Create a guide
+=======================*/
 
-#fb_share {
-    display: block;
-    margin-left: auto;
-    color: var(--accent-color-2);
+#edit-field {
+    background-color: var(--text-color);
+    color: var(--background-color-2);
+    padding: 1em;
 }
-
-.guide-page-description {
-    font-size: 1.3rem;
-}
-
-.guide-page-main-text {
-    margin-top: 4rem;
-    padding: 0 5rem;
-}
-
-.guide-page-main-text h2 {
-    margin-block-end: 0;
-    font-size: 1.8em;
-    font-weight: bold;
-    color: var(--accent-color-2);
-}
-
-.guide-page-main-text h3 {
-    margin-block-end: 0;
-    font-size: 1.6em;
-    color: var(--accent-color-2);
-}
-
-.guide-page-main-text img {
-    width: 100%;
-}
-
-.guide-page-main-text hr {
-    background-color: var(--dim-text-color);
-    height: 1px;
-    border: none;
-    margin-block-end: 2em;
-}
-
-.img-description {
-    margin-top: 0.6em;
-    margin-bottom: 0.6em;
-    font-size: 1rem;
-    color: var(--dim-text-color);
-}
-*/
 
 /*For really small screen sizes*/
 @media screen and (max-width: 310px) {
