@@ -6,18 +6,27 @@ Table of contents
 3. Typography
 4. Navbar
 5. Footer
-6. Index
-7. Guides and category
+6. Sitewide
+7. Index
+8. Guides and category
+9. Guide-page
 */
 
 
 :root {
-    color: white;
+    color: var(--text-color);
     font-family: Arial, Helvetica, sans-serif;
-    --accent-color-1: #FF8920;
-    --accent-color-2: #319FFC;
-    --background-color-1: #1c1c1c;
-    --background-color-2: #080808;
+    --text-color: #1c212d;
+    --opposite-text-color: #ffffff;
+    --dim-text-color: #2b2b2b;
+    --accent-color-1: #ff8920;
+    --accent-text-color-1: #dd6f10;
+    --accent-color-2: #319ffc;
+    --accent-text-color-2: #1974c0;
+    --background-color-1: #ffffff;
+    --background-color-2: #dce8ff;
+    --opposite-background-color: #2b2b2b;
+    word-wrap: break-word;
 }
 
 
@@ -32,18 +41,23 @@ body {
 }
 
 h1 {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
+    font-family: museo-slab, serif;
     margin-block-start: 0.4em;
     margin-block-end: 0.1em;
 }
 
-p {
-    font-size: 1rem;
+h2 {
+    font-family: museo-slab, serif;
 }
 
 a {
     color: inherit;
     text-decoration: inherit;
+}
+
+p {
+    font-size: 1.15rem;
 }
 
 ul {
@@ -57,15 +71,15 @@ ul {
   }
 
 ::-webkit-scrollbar-track {
-    background: black;
+    background: var(--opposite-background-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #353535;
+    background: #454545;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #464646;
+    background: #575757;
 }
 
 
@@ -74,19 +88,19 @@ ul {
 =======================*/
 
 .orange {
-    color: var(--accent-color-1)
+    color: var(--accent-text-color-1);
 }
 
 .blue {
-    color: var(--accent-color-2)
+    color: var(--accent-text-color-2);
 }
 
-.white-hover-link, .orange-hover-link, .blue-hover-link {
+.hover-link {
     position: relative;
     display: inline-block;
 }
 
-.white-hover-link:after, .orange-hover-link:after, .blue-hover-link:after {
+.hover-link:after {
     content: '';
     position: absolute;
     width: 100%;
@@ -94,24 +108,16 @@ ul {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: white;
+    color: inherit;
+    background-color: currentColor;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
   }
 
-.white-hover-link:hover:after, .orange-hover-link:hover:after, .blue-hover-link:hover:after {
+.hover-link:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
-
-.orange-hover-link:after {
-    background-color: var(--accent-color-1)
-}
-
-.blue-hover-link:after {
-    background-color: var(--accent-color-2)
-}
-
 
 /*=======================
 3. Typography
@@ -119,7 +125,7 @@ ul {
 
 .blue-title {
     font-size: 0.8em;
-    color: var(--accent-color-2)
+    color: var(--accent-text-color-2)
 }
 
 
@@ -132,17 +138,18 @@ nav {
     justify-content: space-between;
     align-items: center;
 	width: 100%;
-	background-color: var(--background-color-1);
+	background-color: var(--opposite-background-color);
     position: sticky;
     top: 0;
     padding: 1.5rem 0;
+    z-index: 1;
 }
 
 .nav-title {
+    color: var(--opposite-text-color);
     margin-left: 2rem;
     margin-top: 0;
     margin-bottom: 0;
-    color: white;
     font-size: 1.8rem;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -160,6 +167,7 @@ nav {
 
 .navlinks {
     margin-right: 2rem;
+    font-size: 1.2rem;
     display: none;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--accent-color-2);
@@ -182,12 +190,12 @@ nav {
     padding-bottom: 0.5rem;
     transform: translateX(-1em);
     position: absolute;
-    background-color: var(--background-color-1);
+    background-color: var(--opposite-background-color);
     min-width: 10rem;
 }
 
 .dropdown-guides div {
-    color: white;
+    color: var(--opposite-text-color);
     padding: 0.7em 1em;
 }
 
@@ -222,13 +230,15 @@ nav {
 footer {
     display: flex;
     flex-direction: column;
-    background-color: var(--background-color-1);
+    background-color: var(--opposite-background-color);
+    color: var(--opposite-text-color);
     padding: 1rem 2.2rem;
     padding-bottom: 2rem;
     line-height: 1.3rem;
 }
 
 footer p {
+    font-size: 1rem;
     margin: 0;
 }
 
@@ -253,10 +263,10 @@ footer h3 {
 
 
 /*=======================
-6. Index
+6. Sitewide
 =======================*/
 
-.index-content {
+.content, .content-darker {
     display: flex;
     flex-direction: column;
     margin: 4vw auto;
@@ -266,8 +276,38 @@ footer h3 {
     padding: 5vw;
 }
 
+.content-darker {
+    background-color: var(--background-color-2);
+}
+
+@media screen and (min-width: 900px) {
+    .content, .content-darker {
+        margin-top: 0;
+        margin-bottom: 3rem;
+        width: 800px;
+        padding: 2rem;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .content, .content-darker {
+        width: 1100px;
+    }
+}
+
+
+/*=======================
+7. Index
+=======================*/
+
+.index-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .site-description {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .big-button-title {
@@ -291,46 +331,26 @@ footer h3 {
 }
 
 @media screen and (min-width: 900px) {
-    .index-content {
-        width: 800px;
+    .index-container {
         flex-direction: row;
         justify-content: space-around;
-        margin: 2rem auto;
-        padding: 2rem;
+        margin: 5rem 0;
     }
 
-    .index-content div:nth-child(1) {
+    .index-container div:nth-child(1) {
         width: 40%;
         font-size: 1.3em;
     }
     
-    .index-content div:nth-child(2) {
+    .index-container div:nth-child(2) {
         width: 40%;
-    }
-}
-
-@media screen and (min-width: 1300px) {
-    .index-content {
-        width: 1100px;
-        margin: 3rem auto;
-        padding: 3rem;
     }
 }
 
 
 /*=======================
-7. Guides and category
+8. Guides and category
 =======================*/
-
-.guides-content {
-    display: flex;
-    flex-direction: column;
-    margin: 4vw auto;
-    width: 92vw;
-    background-color: var(--background-color-1);
-    box-sizing: border-box; /*to keep padding inside div*/
-    padding: 5vw;
-}
 
 .categories {
     display: flex;
@@ -343,7 +363,7 @@ footer h3 {
     display: block;
     background-color: var(--accent-color-2);
     font-size: 1.2rem;
-    color: black;
+    color: var(--text-color);
     font-weight: bold;
     text-align: center;
     padding: 0.7em 1em;
@@ -355,7 +375,7 @@ footer h3 {
 }
 
 .category:hover {
-    background-color: white;
+    background-color: var(--background-color-1);
 }
 
 .guides-container {
@@ -369,6 +389,12 @@ footer h3 {
     display: flex;
     flex-direction: column;
     width: 100%;
+    font-size: 1.1rem;
+}
+
+.guide h2 {
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
 .guide img {
@@ -376,17 +402,20 @@ footer h3 {
 }
 
 .guide p {
-    font-size: 1rem;
+    margin-block-start: 1em;
+    margin-block-end: 1.2em;
+    color: var(--text-color);
 }
 
 .guide-main {
-    background-color: var(--background-color-2);
+    box-sizing: border-box;
+    background-color: var(--background-color-1);
     padding: 1.5em;
-    padding-top: 0;
+    height: 100%;
 }
 
 .guide-button {
-    font-size: 1.2rem;
+    font-size: 1.2em;
     font-weight: bold;
     text-align: center;
     display: block;
@@ -404,9 +433,14 @@ footer h3 {
 
     .guide-main {
         order: -1;
+        padding: 2.5em 1.8em;
     }
 
     .guide img {
+        width: 50%;
+    }
+
+    .guide-main {
         width: 50%;
     }
 }
@@ -415,20 +449,83 @@ footer h3 {
     .guide {
         width: calc(50% - 0.75em);
     }
+}
 
-    .guides-content {
-        margin: 2rem auto;
-        width: 800px;
-        padding: 2rem;
+
+/*=======================
+9. Guide-page
+=======================*/
+
+.guide-page-title {
+    color: var(--accent-text-color-2);
+}
+
+.guide-page-info {
+    font-size: 1rem;
+    width: 100%;
+}
+
+#fb_share {
+    color: var(--accent-text-color-2);
+}
+
+.guide-page-description {
+    font-size: 1.3rem;
+}
+
+.guide-page-main-text {
+    margin-top: 4rem;
+}
+
+.guide-page-main-text h2 {
+    margin-block-end: 0;
+    font-size: 1.9em;
+    color: var(--accent-text-color-2);
+}
+
+.guide-page-main-text h3 {
+    margin-block-end: 0;
+    font-size: 1.6em;
+    color: var(--accent-text-color-2);
+}
+
+.guide-page-main-text img {
+    width: 100%;
+}
+
+.guide-page-main-text hr {
+    background-color: var(--dim-text-color);
+    height: 1px;
+    border: none;
+    margin-block-end: 2em;
+}
+
+.img-description {
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    font-size: 1rem;
+    color: var(--dim-text-color);
+}
+
+@media screen and (min-width: 900px) {
+    .guide-page-content {
+        padding: 0 1rem;
+    }
+    
+    .guide-page-main-text {
+        padding: 0 5rem;
     }
 }
 
-@media screen and (min-width: 1300px) {
-    .guides-content {
-        margin: 3rem auto;
-        width: 1100px;
-        padding: 3rem;
-    }
+
+/*=======================
+9. Create a guide
+=======================*/
+
+#edit-field {
+    background-color: var(--text-color);
+    color: var(--background-color-2);
+    padding: 1em;
 }
 
 /*For really small screen sizes*/
