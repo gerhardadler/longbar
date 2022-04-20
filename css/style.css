@@ -141,7 +141,7 @@ nav {
 	background-color: var(--opposite-background-color);
     position: sticky;
     top: 0;
-    padding: 1.5rem 0;
+    padding: 1.2rem 0;
     z-index: 1;
 }
 
@@ -151,7 +151,7 @@ nav {
     margin-top: 0;
     margin-bottom: 0;
     font-size: 1.8rem;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
 }
 
@@ -167,7 +167,7 @@ nav {
 
 .navlinks {
     margin-right: 2rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     display: none;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--accent-color-2);
@@ -191,11 +191,11 @@ nav {
     transform: translateX(-1em);
     position: absolute;
     background-color: var(--opposite-background-color);
+    color: var(--opposite-text-color);
     min-width: 10rem;
 }
 
 .dropdown-guides div {
-    color: var(--opposite-text-color);
     padding: 0.7em 1em;
 }
 
@@ -522,7 +522,7 @@ footer h3 {
 9. Create a guide
 =======================*/
 
-#edit-field {
+.edit-container {
     background-color: var(--text-color);
     color: var(--background-color-2);
     padding: 1em;
