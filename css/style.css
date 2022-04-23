@@ -361,7 +361,7 @@ footer h3 {
 
 .category {
     display: block;
-    background-color: var(--accent-color-2);
+    background-color: var(--accent-color-1);
     font-size: 1.2rem;
     color: var(--text-color);
     font-weight: bold;
@@ -456,11 +456,11 @@ footer h3 {
 9. Guide-page
 =======================*/
 
-.guide-page-title {
+#guide-page-title {
     color: var(--accent-text-color-2);
 }
 
-.guide-page-info {
+#guide-page-info {
     font-size: 1rem;
     width: 100%;
 }
@@ -469,31 +469,31 @@ footer h3 {
     color: var(--accent-text-color-2);
 }
 
-.guide-page-description {
+#guide-page-description {
     font-size: 1.3rem;
 }
 
-.guide-page-main-text {
+#guide-page-main-text {
     margin-top: 4rem;
 }
 
-.guide-page-main-text h2 {
+#guide-page-main-text h2 {
     margin-block-end: 0;
     font-size: 1.9em;
     color: var(--accent-text-color-2);
 }
 
-.guide-page-main-text h3 {
+#guide-page-main-text h3 {
     margin-block-end: 0;
     font-size: 1.6em;
     color: var(--accent-text-color-2);
 }
 
-.guide-page-main-text img {
+#guide-page-main-text img {
     width: 100%;
 }
 
-.guide-page-main-text hr {
+#guide-page-main-text hr {
     background-color: var(--dim-text-color);
     height: 1px;
     border: none;
@@ -512,7 +512,7 @@ footer h3 {
         padding: 0 1rem;
     }
     
-    .guide-page-main-text {
+    #guide-page-main-text {
         padding: 0 5rem;
     }
 }
