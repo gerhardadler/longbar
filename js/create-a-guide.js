@@ -8,7 +8,7 @@ var Editor = new Quill("#ql-editor", {
     theme: "snow"
 })
 
-let removeFormatContent = [document.getElementById("guide-page-title"), document.getElementById("guide-page-description")]
+const removeFormatContent = [document.getElementsByClassName("guide-page-title")[0], document.getElementsByClassName("guide-page-description")[0]]
 
 removeFormatContent.forEach((item) => {
     item.addEventListener("keydown", (e) => {
