@@ -17,25 +17,9 @@
         <title>Create a Guide</title>
     </head>
     <body>
-        <nav>
-            <h1 class="nav-title"><a class="hover-link" href="/">Longbar.org</a></h1>
-            <a class="hamburger"><img src="/images/hamburger.svg"></a>
-            <ul class="navlinks">
-                <li class="dropdown-container">
-                    <a class="hover-link" href="/guides">Guides</a>
-                    <div class="dropdown-guides">
-                        <div><a class="hover-link" href="/category">Equipment</a></div>
-                        <div><a class="hover-link" href="/category">History</a></div>
-                        <div><a class="hover-link" href="/category">New player</a></div>
-                        <div><a class="hover-link" href="/category">Software</a></div>
-                        <div><a class="hover-link" href="/category">Strategy</a></div>
-                        <div><a class="hover-link" href="/category">Streaming</a></div>
-                        <div><a class="hover-link" href="/category">Tournaments</a></div>
-                    </div>
-                </li>
-                <li><a class="hover-link" href="#">Create a Guide</a></li>
-            </ul>
-        </nav>
+        <?php
+            include "html-elements/nav.html"
+        ?>
         <div id="toolbar-main">
             <span class="ql-formats">
                 <button class="ql-bold"></button>
