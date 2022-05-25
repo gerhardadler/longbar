@@ -1,3 +1,6 @@
+const guidePageTitle =  document.getElementsByClassName("guide-page-title")[0]
+const guidePageDescription =  document.getElementsByClassName("guide-page-description")[0]
+
 var editField = document.getElementById("ql-editor")
 var toolbar = document.getElementById("toolbar")
 
@@ -8,7 +11,7 @@ var editor = new Quill("#ql-editor", {
     theme: "snow"
 })
 
-const removeFormatContent = [document.getElementsByClassName("guide-page-title")[0], document.getElementsByClassName("guide-page-description")[0]]
+const removeFormatContent = [guidePageTitle, guidePageDescription]
 
 removeFormatContent.forEach((item) => {
     item.addEventListener("keydown", (e) => {
@@ -30,17 +33,12 @@ removeFormatContent.forEach((item) => {
     })
 })
 
+const postGuideForm = document.getElementById("post-guide-form")
 document.addEventListener("keydown", (e) => {
     if (e.key == "Control") {
-        const video = document.querySelectorAll('.ql-video')
-        console.log(video)
-        video.forEach((item, index, object) => {
-            if (!item.parentNode.classList.contains('ql-editor')) {
-                object.slice(index, 1)
-            }
-        })
-        console.log(video)
-        const width = video.offsetWidth
-        video.style.height = width * 2
+        postGuideForm.title.value = guidePageTitle.textContent
+        postGuideForm.description.value = guidePageDescription.textContent
+        postGuideForm.content.value = editor.root.innerHTML
+        postGuideForm.submit()
     }
 })

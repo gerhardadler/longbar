@@ -13,6 +13,9 @@
 
         <script defer type="text/javascript" src="/js/script.js"></script>
         <script defer src="https://kit.fontawesome.com/4891e5aca9.js" crossorigin="anonymous"></script> <!-- Makes it easy to use icons -->
+        <!-- Main Quill library -->
+        <script defer src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+        <script defer type="text/javascript" src="/js/create-a-guide.js"></script> <!-- Loaded after DOM is ready -->
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -60,14 +63,9 @@
         </div>
         <div class="content">
             <div class="guide-page-content">
-                <h1 class="guide-page-title" contenteditable="true">Join communities</h1>
+                <h1 class="guide-page-title" contenteditable="true">Write your title here.</h1>
 
-                <p class="guide-page-description" contenteditable="true">
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et
-                    magnis dis parturient montes, nascetur ridiculus mus.
-                    Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.
-                </p>
+                <p class="guide-page-description" contenteditable="true">Write your description here.</p>
 
                 <div class="guide-page-info">
                     By: Clint Eastwood<br>
@@ -76,16 +74,32 @@
                 </div>
 
                 <div class="guide-page-main-text">
-                    <div id="ql-editor"><p>Write your main content here!</p></div>
+                    <div id="ql-editor"><p>Write your main content here.</p></div>
                 </div>
             </div>
+            <form id="post-guide-form" action="/create-a-guide/post-guide.php" method="post">
+                <input type="hidden" name="title">
+                <input type="hidden" name="description">
+                <input type="hidden" name="content">
+                <fieldset>
+                    <legend>Choose the categories the guide falls in to</legend>
+                    <label for="equipment">Equipment</label>
+                    <input type="checkbox" value="checked" name="equipment"><br>
+                    <label for="history">History</label>
+                    <input type="checkbox" value="checked" name="history"><br>
+                    <label for="new_player">New Player</label>
+                    <input type="checkbox" value="checked" name="new_player"><br>
+                    <label for="software">Software</label>
+                    <input type="checkbox" value="checked" name="software"><br>
+                    <label for="strategy">Strategy</label>
+                    <input type="checkbox" value="checked" name="strategy"><br>
+                    <label for="streaming">Streaming</label>
+                    <input type="checkbox" value="checked" name="streaming"><br>
+                    <label for="tournaments">Tournaments</label>
+                    <input type="checkbox" value="checked" name="tournaments"><br>
+                </fieldset>
+            </form>
         </div>
-        <button onclick="console.log(editor.root.innerHTML.trim())">Knapppppp</button>
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/html-elements/footer.html' ?>
-        <!-- Main Quill library -->
-        <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
-        <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
-
-        <script type="text/javascript" src="/js/create-a-guide.js"></script> <!-- Loaded after DOM is ready -->
     </body>
 </html>
