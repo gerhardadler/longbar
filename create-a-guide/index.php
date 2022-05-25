@@ -6,12 +6,16 @@
         <!-- Quill Theme included stylesheets -->
         <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.snow.css">
 
-         <link rel="stylesheet" href="/css/snow-customisation.css">
-        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/snow-customisation.css">
+        <link rel="stylesheet" href="/css/sitewide.css">
+        <link rel="stylesheet" href="/css/guide.css">
+        <link rel="stylesheet" href="/css/create-a-guide.css">
 
-        <script type="text/javascript" src="/js/script.js"></script>
-        <script src="https://kit.fontawesome.com/4891e5aca9.js" crossorigin="anonymous"></script> <!-- Makes it easy to use icons -->
+        <script defer type="text/javascript" src="/js/script.js"></script>
+        <script defer src="https://kit.fontawesome.com/4891e5aca9.js" crossorigin="anonymous"></script> <!-- Makes it easy to use icons -->
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <title>Create a Guide</title>
     </head>
     <body>
@@ -25,7 +29,6 @@
             </span>
             <span class="ql-formats">
                 <button class="ql-blockquote"></button>
-                <button class="ql-code-block"></button>
             </span>
             <span class="ql-formats">
                 <select class="ql-header">

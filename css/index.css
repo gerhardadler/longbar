@@ -1,0 +1,46 @@
+.index-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.site-description {
+    font-size: 1.3rem;
+}
+
+.big-button-title {
+    font-size: 1.8rem;
+    margin-top: 2em;
+    margin-bottom: 0.7em;
+}
+
+.big-button {
+    display: block;
+    background-color: var(--accent-color-1);
+    font-size: 1.4rem;
+    color: black;
+    font-weight: bold;
+    padding: 1em;
+    text-align: center;
+}
+
+.big-button:last-child {
+    margin-bottom: 25px;
+}
+
+@media screen and (min-width: 900px) {
+    .index-container {
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 5rem 0;
+    }
+
+    .index-container div:nth-child(1) {
+        width: 40%;
+        font-size: 1.3em;
+    }
+    
+    .index-container div:nth-child(2) {
+        width: 40%;
+    }
+}

@@ -1,0 +1,18 @@
+nav {
+    position: static;
+    background-color: var(--accent-color-2);
+}
+
+.nav-title {
+    color: var(--text-color);
+}
+
+.navlinks {
+    color: var(--text-color);
+}
+
+.dropdown-guides {
+    background-color: var(--accent-color-2);
+    z-index: 2; /* Keep above toolbar */
+    color: var(--text-color);
+}

@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Longbar.org</title>
-        <link rel="stylesheet" href="/css/style.css">
-        <script type="text/javascript" src="/js/script.js"></script>
-        <script src="https://kit.fontawesome.com/4891e5aca9.js" crossorigin="anonymous"></script> <!-- Makes it easy to use icons -->
         <link rel="stylesheet" href="https://use.typekit.net/vkg1ncc.css"> <!-- Museo Slab Serif -->
+        
+        <link rel="stylesheet" href="/css/sitewide.css">
+        <link rel="stylesheet" href="/css/index.css">
+        
+        <script defer type="text/javascript" src="/js/script.js"></script>
+        <script defer src="https://kit.fontawesome.com/4891e5aca9.js" crossorigin="anonymous"></script> <!-- Makes it easy to use icons -->
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Longbar.org</title>
     </head>
     <body>
         <?php include $_SERVER['DOCUMENT_ROOT'] . '/html-elements/nav.html' ?>
