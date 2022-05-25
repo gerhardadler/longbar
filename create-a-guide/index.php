@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="/css/style.css">
-
         <link rel="stylesheet" href="https://use.typekit.net/vkg1ncc.css"> <!-- Museo Slab Serif -->
 
         <!-- Quill Theme included stylesheets -->
         <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.snow.css">
-        <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.bubble.css">
 
-        <link rel="stylesheet" href="/css/snow-customisation.css">
+         <link rel="stylesheet" href="/css/snow-customisation.css">
+        <link rel="stylesheet" href="/css/style.css">
 
         <script type="text/javascript" src="/js/script.js"></script>
         <script src="https://kit.fontawesome.com/4891e5aca9.js" crossorigin="anonymous"></script> <!-- Makes it easy to use icons -->
@@ -17,9 +15,7 @@
         <title>Create a Guide</title>
     </head>
     <body>
-        <?php
-            include "html-elements/nav.html"
-        ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'] . '/html-elements/nav.html' ?>
         <div id="toolbar-main">
             <span class="ql-formats">
                 <button class="ql-bold"></button>
@@ -35,7 +31,7 @@
                 <select class="ql-header">
                     <option value="2"></option>
                     <option value="3"></option>
-                    <option value="false"></option>
+                    <option value=""></option>
                 </select>
             </span>
             <span class="ql-formats">
@@ -76,33 +72,13 @@
                     <a class="hover-link" href="#" onclick="alert('Youre working on the guide dumbass')" id="fb_share"><i class="fa-brands fa-facebook-square"></i> Share on Facebook</a>
                 </div>
 
-                <div id="guide-page-main-text">
+                <div class="guide-page-main-text">
                     <div id="ql-editor"><p>Write your main content here!</p></div>
                 </div>
             </div>
-            
         </div>
-        <footer class="footer">
-            <div>
-                <h3>Contact us</h3>
-                <p>
-                    <i class="fa-solid fa-phone"></i> gerhardskartveit@gmail.com<br>
-                    <i class="fa-solid fa-envelope"></i> +47 452 87 462
-                </p>
-            </div>
-            <div>
-                <h3>Longbar.org</h3>
-                <ul>
-                    <li><a class="hover-link" href="/category">Equipment</a></li>
-                    <li><a class="hover-link" href="/category">History</a></li>
-                    <li><a class="hover-link" href="/category">New player</a></li>
-                    <li><a class="hover-link" href="/category">Software</a></li>
-                    <li><a class="hover-link" href="/category">Strategy</a></li>
-                    <li><a class="hover-link" href="/category">Streaming</a></li>
-                    <li><a class="hover-link" href="/category">Tournaments</a></li>
-                </ul>
-            </div>
-        </footer>
+        <button onclick="console.log(editor.root.innerHTML.trim())">Knapppppp</button>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/html-elements/footer.html' ?>
         <!-- Main Quill library -->
         <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
         <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>

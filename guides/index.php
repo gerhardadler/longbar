@@ -9,25 +9,7 @@
         <title>Guides</title>
     </head>
     <body>
-        <nav>
-            <h1 class="nav-title"><a class="hover-link" href="/">Longbar.org</a></h1>
-            <a class="hamburger"><img src="/images/hamburger.svg"></a>
-            <ul class="navlinks">
-                <li class="dropdown-container">
-                    <a class="hover-link" href="/guides">Guides</a>
-                    <div class="dropdown-guides">
-                        <div><a class="hover-link" href="/category">Equipment</a></div>
-                        <div><a class="hover-link" href="/category">History</a></div>
-                        <div><a class="hover-link" href="/category">New player</a></div>
-                        <div><a class="hover-link" href="/category">Software</a></div>
-                        <div><a class="hover-link" href="/category">Strategy</a></div>
-                        <div><a class="hover-link" href="/category">Streaming</a></div>
-                        <div><a class="hover-link" href="/category">Tournaments</a></div>
-                    </div>
-                </li>
-                <li><a class="hover-link" href="#">Create a Guide</a></li>
-            </ul>
-        </nav>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/html-elements/nav.html' ?>
         <div class="content-darker">
             
             <h1 class="blue">Our Guides</h1>
@@ -114,26 +96,6 @@
 
             </div>
         </div>
-        <footer class="footer">
-            <div>
-                <h3>Contact us</h3>
-                <p>
-                    <i class="fa-solid fa-phone"></i> gerhardskartveit@gmail.com<br>
-                    <i class="fa-solid fa-envelope"></i> +47 452 87 462
-                </p>
-            </div>
-            <div>
-                <h3>Longbar.org</h3>
-                <ul>
-                    <li><a class="hover-link" href="/category">Equipment</a></li>
-                    <li><a class="hover-link" href="/category">History</a></li>
-                    <li><a class="hover-link" href="/category">New player</a></li>
-                    <li><a class="hover-link" href="/category">Software</a></li>
-                    <li><a class="hover-link" href="/category">Strategy</a></li>
-                    <li><a class="hover-link" href="/category">Streaming</a></li>
-                    <li><a class="hover-link" href="/category">Tournaments</a></li>
-                </ul>
-            </div>
-        </footer>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/html-elements/footer.html' ?>
     </body>
 </html>

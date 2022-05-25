@@ -1,7 +1,7 @@
 var editField = document.getElementById("ql-editor")
 var toolbar = document.getElementById("toolbar")
 
-var Editor = new Quill("#ql-editor", {
+var editor = new Quill("#ql-editor", {
     modules: {
         toolbar: "#toolbar-main"
     },
