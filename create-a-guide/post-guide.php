@@ -3,29 +3,19 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
     exit("This script can only be run through POST");
 }
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-// Use database
-$conn->query("USE longbar");
+include $_SERVER["DOCUMENT_ROOT"] . '/php-resources/connect-to-longbar-mysql.php';
 
 $sanitized_title = $conn->real_escape_string($_POST['title']);
 $sanitized_description = $conn->real_escape_string($_POST['description']);
 $sanitized_content = $conn->real_escape_string($_POST['content']);
 
+$sanitized_title = htmlspecialchars($sanitized_title);
+$sanitized_description = htmlspecialchars($sanitized_description);
+
 $sql = 
 "INSERT INTO guides (name, description, content)
 VALUES ('$sanitized_title', '$sanitized_description', '$sanitized_content');";
-//$result = $conn->query($sql);
+$conn->query($sql);
 echo $sql;
 
 $selected_categories = array(
@@ -38,8 +28,8 @@ $selected_categories = array(
     isset($_POST['tournaments'])
 );
 
-//$insert_id = $conn->insert_id;
-$insert_id = 7;
+$insert_id = $conn->insert_id;
+//$insert_id = 7;
 $sql = "";
 $iteration = 0;
 foreach ($selected_categories as $category) {
@@ -52,4 +42,6 @@ foreach ($selected_categories as $category) {
 }
 
 echo $sql;
+$conn->multi_query($sql);
+echo $conn->error;
 ?>

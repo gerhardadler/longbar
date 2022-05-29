@@ -1,18 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-// Use database
-$conn->query("USE longbar");
+include $_SERVER["DOCUMENT_ROOT"] . '/php-resources/connect-to-longbar-mysql.php';
 
 $sql = 
 "SELECT
