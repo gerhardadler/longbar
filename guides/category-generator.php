@@ -11,7 +11,7 @@ LIMIT 1;";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    $row = mysqli_fetch_assoc($result);
+            
     $category_name = $row["category_name"];
     $category_description = $row["category_description"];
 }
