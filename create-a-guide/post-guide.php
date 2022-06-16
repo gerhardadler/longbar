@@ -12,11 +12,12 @@ $sanitized_content = $conn->real_escape_string($_POST['content']);
 $sanitized_title = htmlspecialchars($sanitized_title);
 $sanitized_description = htmlspecialchars($sanitized_description);
 
-$sql = 
-"INSERT INTO guides (name, description, content)
-VALUES ('$sanitized_title', '$sanitized_description', '$sanitized_content');";
-$conn->query($sql);
-echo $sql;
+$stmt = $conn->prepare(
+    "INSERT INTO guides (name, description, content)
+    VALUES (?, ?, ?);"
+);
+$stmt->bind_param("sss", $sanitized_title, $sanitized_description, $sanitized_content);
+$stmt->execute();
 
 $selected_categories = array(
     isset($_POST['equipment']),
@@ -29,19 +30,18 @@ $selected_categories = array(
 );
 
 $insert_id = $conn->insert_id;
-//$insert_id = 7;
-$sql = "";
 $iteration = 0;
+
+$stmt = $conn->prepare(
+    "INSERT INTO guide_category (guide_id, category_id)
+    VALUES (?, ?);"
+);
+$stmt->bind_param("ii", $insert_id, $iteration);
+
 foreach ($selected_categories as $category) {
     $iteration += 1;
     if ($category) {
-        $sql .=
-        "INSERT INTO guide_category (guide_id, category_id)
-        VALUES ($insert_id, $iteration);";
+        $stmt->execute();
     }
 }
-
-echo $sql;
-$conn->multi_query($sql);
-echo $conn->error;
 ?>

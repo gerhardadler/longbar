@@ -1,7 +1,3 @@
-<?php
-echo 'Welcome, '.$_COOKIE["user"];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>

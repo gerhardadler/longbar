@@ -34,11 +34,9 @@ removeFormatContent.forEach((item) => {
 })
 
 const postGuideForm = document.getElementById("post-guide-form")
-document.addEventListener("keydown", (e) => {
-    if (e.key == "Control") {
-        postGuideForm.title.value = guidePageTitle.textContent
-        postGuideForm.description.value = guidePageDescription.textContent
-        postGuideForm.content.value = editor.root.innerHTML
-        postGuideForm.submit()
-    }
-})
+function submitGuide() {
+    postGuideForm.title.value = guidePageTitle.textContent
+    postGuideForm.description.value = guidePageDescription.textContent
+    postGuideForm.content.value = editor.root.innerHTML
+    postGuideForm.submit()
+}
