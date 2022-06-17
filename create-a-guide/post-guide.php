@@ -5,19 +5,20 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 
 include $_SERVER["DOCUMENT_ROOT"] . '/php-resources/connect-to-longbar-mysql.php';
 
-$sanitized_title = $conn->real_escape_string($_POST['title']);
-$sanitized_description = $conn->real_escape_string($_POST['description']);
-$sanitized_content = $conn->real_escape_string($_POST['content']);
-
-$sanitized_title = htmlspecialchars($sanitized_title);
-$sanitized_description = htmlspecialchars($sanitized_description);
+$sanitized_title = htmlspecialchars($_POST['title']);
+$sanitized_description = htmlspecialchars($_POST['description']);
 
 $stmt = $conn->prepare(
     "INSERT INTO guides (name, description, content)
     VALUES (?, ?, ?);"
 );
-$stmt->bind_param("sss", $sanitized_title, $sanitized_description, $sanitized_content);
+$stmt->bind_param("sss", $sanitized_title, $sanitized_description, $_POST['content']);
 $stmt->execute();
+
+// https://stackoverflow.com/a/42908256/12834165
+$file_name = preg_replace('/[^a-z0-9]+/', '-', strtolower($sanitized_title));
+
+mkdir($_SERVER["DOCUMENT_ROOT"] . '/guides/' . $file_name);
 
 $selected_categories = array(
     isset($_POST['equipment']),

@@ -79,8 +79,6 @@ $stmt = $conn->prepare(
     "INSERT INTO users (username, email, password)
     VALUES (?, ?, ?);"
 );
-
 $stmt->bind_param('sss', $sanitized_username, $sanitized_email, $hashed_password);
-
 $stmt->execute();
 ?>

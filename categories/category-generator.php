@@ -1,19 +1,20 @@
 <?php
 include $_SERVER["DOCUMENT_ROOT"] . '/php-resources/connect-to-longbar-mysql.php';
 
-$sql = 
-"SELECT
-    name AS category_name,
-    description AS category_description
-FROM categories
-WHERE id=$category_id
-LIMIT 1;";
-$result = $conn->query($sql);
+$stmt = $conn->prepare(
+    "SELECT name, description
+    FROM categories
+    WHERE id=?
+    LIMIT 1;"
+);
+$stmt->bind_param('i', $category_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = mysqli_fetch_assoc($result);
 
 if ($result->num_rows > 0) {
-            
-    $category_name = $row["category_name"];
-    $category_description = $row["category_description"];
+    $category_name = $row["name"];
+    $category_description = $row["description"];
 }
 
 $guide_template = '
@@ -36,20 +37,20 @@ $guide_to_be_replaced = array('[guide_title]',
                         '[guide_img]'
 );
 
-$sql = 
-"SELECT
-    guides.name AS guide_name,
-    guides.publish_time,
-    guides.edit_time,
-    guides.description AS guide_description,
-    guides.content
-FROM guides
-INNER JOIN guide_category
-ON guide_category.guide_id = guides.id
-INNER JOIN categories
-ON guide_category.category_id = categories.id
-WHERE categories.id = $category_id;";
-$result = $conn->query($sql);
+$stmt = $conn->prepare(
+    "SELECT
+        guides.name AS guide_name,
+        guides.description AS guide_description
+    FROM guides
+    INNER JOIN guide_category
+    ON guide_category.guide_id = guides.id
+    INNER JOIN categories
+    ON guide_category.category_id = categories.id
+    WHERE categories.id = ?;"
+);
+$stmt->bind_param('i', $category_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     while($row = mysqli_fetch_assoc($result)) {

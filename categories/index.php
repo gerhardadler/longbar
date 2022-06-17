@@ -18,16 +18,15 @@
         <div class="content-darker">
             
             <h1 class="blue">Our Guides</h1>
-            
             <h2>Categories</h2>
             <div class="categories">
-                    <a href="/category" class="category">Equipment</a>
-                    <a href="/category" class="category">History</a>
-                    <a href="/category" class="category">New player</a>
-                    <a href="/category" class="category">Software</a>
-                    <a href="/category" class="category">Strategy</a>
-                    <a href="/category" class="category">Streaming</a>
-                    <a href="/category" class="category">Tournaments</a>
+                    <a href="/categories/equipment" class="category">Equipment</a>
+                    <a href="/categories/history" class="category">History</a>
+                    <a href="/categories/new-player" class="category">New player</a>
+                    <a href="/categories/software" class="category">Software</a>
+                    <a href="/categories/strategy" class="category">Strategy</a>
+                    <a href="/categories/streaming" class="category">Streaming</a>
+                    <a href="/categories/tournaments" class="category">Tournaments</a>
             </div>
             <h2 class="opposite-sub-title">Recommended guides</h2>
             
