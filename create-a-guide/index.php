@@ -15,6 +15,7 @@ if (isset($_COOKIE["token"])) {
     $stmt->bind_param("s", $_COOKIE["token"]);
     $stmt->execute();
     $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
     if ($result->num_rows > 0) {
         $_SESSION["user_id"] = $row["id"];
         $_SESSION["username"] = $row["username"];
@@ -23,7 +24,6 @@ if (isset($_COOKIE["token"])) {
 
         // Update cookie expiration
         setcookie("token", $_COOKIE["token"], time() + (86400 * 30), "/", "dev.longbar.org", true, true); // 86400 = 1 day
-
         header("Location: /editor");
     }
 }

@@ -24,7 +24,7 @@ $stmt = $conn->prepare(
 $stmt->bind_param("ss", $sanitized_username_or_email, $sanitized_username_or_email);
 $stmt->execute();
 $result = $stmt->get_result();
-$row = mysqli_fetch_assoc($result);
+$row = $result->fetch_assoc();
 
 if (password_verify($sanitized_password, $row["password"])) {
     if (isset($_POST["remember-me"])) {

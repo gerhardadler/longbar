@@ -11,7 +11,7 @@ $stmt = $conn->prepare(
 $stmt->bind_param('i', $guide_id);
 $stmt->execute();
 $result = $stmt->get_result();
-$row = mysqli_fetch_assoc($result);
+$row = $result->fetch_assoc();
 
 if ($result->num_rows > 0) {
     $guide_name = $row["name"];
@@ -19,7 +19,6 @@ if ($result->num_rows > 0) {
     $guide_description = $row["description"];
     $guide_content = $row["content"];
 }
-
 ?>
 
 <!DOCTYPE html>

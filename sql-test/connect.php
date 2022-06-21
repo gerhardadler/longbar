@@ -30,7 +30,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   echo "<ul>";
   // output data of each row
-  while($row = mysqli_fetch_assoc($result)) {
+  while($row = $result->fetch_assoc()) {
     echo "<li>id: " . $row["id"] . "</li>";
     echo "<li>name: " . $row["name"] . "</li>";
     echo "<li>publish_time: " . $row["publish_time"] . "</li>";

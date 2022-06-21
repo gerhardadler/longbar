@@ -10,32 +10,12 @@ $stmt = $conn->prepare(
 $stmt->bind_param('i', $category_id);
 $stmt->execute();
 $result = $stmt->get_result();
-$row = mysqli_fetch_assoc($result);
+$row = $result->fetch_assoc();
 
 if ($result->num_rows > 0) {
     $category_name = $row["name"];
     $category_description = $row["description"];
 }
-
-$guide_template = '
-                    <div class="guide">
-                        <img class="guide-img" src="[guide_img]">
-                        <div class="guide-main">
-                            <h2>[guide_title]</h2>
-                            <p>
-                                [guide_description]
-                            </p>
-                            <a href="#" class="guide-button">Read more</a>
-                        </div>
-                    </div>
-';
-
-$guides = '';
-
-$guide_to_be_replaced = array('[guide_title]',
-                        '[guide_description]',
-                        '[guide_img]'
-);
 
 $stmt = $conn->prepare(
     "SELECT
@@ -52,10 +32,21 @@ $stmt->bind_param('i', $category_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
+$guides = '';
 if ($result->num_rows > 0) {
-    while($row = mysqli_fetch_assoc($result)) {
-        $guide_replacement = array($row["guide_name"], $row["guide_description"], "/images/laptop-with-tetris.jpg");
-        $guides .= str_replace($guide_to_be_replaced, $guide_replacement, $guide_template);
+    while($row = $result->fetch_assoc()) {
+        $guide_link = '/guides/' . preg_replace('/[^a-z0-9]+/', '-', strtolower($row["guide_name"]));
+        $guides .=
+'<div class="guide">
+    <img class="guide-img" src="/images/laptop-with-tetris.jpg">
+    <div class="guide-main">
+        <h2>' . $row["guide_name"] . '</h2>
+        <p>
+            ' . $row["guide_description"] . '
+        </p>
+        <a href="' . $guide_link . '" class="guide-button">Read more</a>
+    </div>
+</div>';
     }
 }
 $conn->close();
