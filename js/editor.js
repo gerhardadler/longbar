@@ -15,7 +15,7 @@ const removeFormatContent = [guidePageTitle, guidePageDescription]
 
 removeFormatContent.forEach((item) => {
     item.addEventListener("keydown", (e) => {
-        if (e.key == "Enter") {
+        if (e.key==="Enter") {
             e.preventDefault()
         }
     })

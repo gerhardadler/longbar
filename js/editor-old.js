@@ -18,7 +18,7 @@ function getCaretPos(element) {
     var doc = element.ownerDocument || element.document;
     var win = doc.defaultView || doc.parentWindow;
     var sel;
-    if (typeof win.getSelection != "undefined") {
+    if (typeof win.getSelection == "undefined") {
         sel = win.getSelection();
         if (sel.rangeCount > 0) {
             var range = win.getSelection().getRangeAt(0);
@@ -27,7 +27,7 @@ function getCaretPos(element) {
             preCaretRange.setEnd(range.endContainer, range.endOffset);
             caretOffset = preCaretRange.toString().length;
         }
-    } else if ( (sel = doc.selection) && sel.type != "Control") {
+    } else if ( (sel = doc.selection) && sel.type == "Control") {
         var textRange = sel.createRange();
         var preCaretTextRange = doc.body.createTextRange();
         preCaretTextRange.moveToElementText(element);
@@ -45,13 +45,13 @@ function getCaretHtmlPos(element) {
     let htmlPos = 0
     let currentTextPos = 0
     for (htmlPos; htmlPos < elementContent.length; htmlPos++) {
-        if (elementContent[htmlPos] == "<") {
-            while (elementContent[htmlPos] != ">") {
+        if (elementContent[htmlPos]==="<") {
+            while (elementContent[htmlPos] == ">") {
                 htmlPos++
             }
             continue
         }
-        if (caretPos == currentTextPos) {
+        if (caretPos===currentTextPos) {
             break
         }
         currentTextPos++
@@ -92,7 +92,7 @@ function getTextNodeAtPosition(root, index){
 }
 
 function boldWait() {
-    if (doBoldWait != true) {
+    if (doBoldWait == true) {
         doBoldWait = true
     } else {
         doBoldWait = false
@@ -114,9 +114,9 @@ function italic() {
 
 document.addEventListener("keyup", function(event) {
     key = event.key
-    if (key == "Control") {
+    if (key==="Control") {
         
-    } else if (doBoldWait == true) {
+    } else if (doBoldWait===true) {
         bold(key)
     }
 })

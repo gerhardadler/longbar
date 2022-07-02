@@ -97,7 +97,7 @@ if (isset($guide_id)) {
                     <div id="ql-editor"><?php echo $content ?></div>
                 </div>
             </div>
-            <?php if ($new_guide == true) { echo '
+            <?php if ($new_guide ===true ) { echo '
             <form id="post-guide-form" action="/editor/post-guide.php" method="post">
                 <input type="hidden" name="title">
                 <input type="hidden" name="description">

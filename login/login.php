@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] != "POST") {
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit("This script can only be run through POST");
 }
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SERVER["REQUEST_METHOD"] != "POST") {
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit("This script can only be run through POST");
 }
 
@@ -10,8 +10,8 @@ $sanitized_title = htmlspecialchars($_POST['title']);
 $sanitized_description = htmlspecialchars($_POST['description']);
 
 $stmt = $conn->prepare(
-    "INSERT INTO guides (name, description, content)
-    VALUES (?, ?, ?);"
+    "INSERT INTO guides (name, description, content, old_version)
+    VALUES (?, ?, ?, 0);"
 );
 $stmt->bind_param("sss", $sanitized_title, $sanitized_description, $_POST['content']);
 $stmt->execute();
