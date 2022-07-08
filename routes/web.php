@@ -20,6 +20,7 @@ Route::view("/", "static/home");
 
 Route::get("/guides", [GuideController::class, "index"]);
 Route::get("/guides/create", [GuideController::class, "create"]);
+Route::post("/guides/create", [GuideController::class, "store"]);
 Route::get("/guides/{categories:slug}", [GuideController::class, "show"]);
 
 Route::get("/{categories:slug}", [CategoryController::class, "show"]);

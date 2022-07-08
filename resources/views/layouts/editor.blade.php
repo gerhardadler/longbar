@@ -62,31 +62,31 @@
         </div>
     </div>
     @isset($is_new_guide)
-        <form id="post-guide-form" action="/editor/post-guide.php" method="post">
+        <form id="post-guide-form" action="/guides/create" method="post">
             @csrf
-            <input type="hidden" name="title">
+            <input type="hidden" name="name">
             <input type="hidden" name="description">
             <input type="hidden" name="content">
             <fieldset>
                 <legend>Choose the categories the guide falls in to</legend>
                 <label for="equipment">Equipment</label>
-                <input type="checkbox" value="checked" name="equipment"><br>
+                <input type="checkbox" value="checked" name="category_1"><br>
                 <label for="history">History</label>
-                <input type="checkbox" value="checked" name="history"><br>
+                <input type="checkbox" value="checked" name="category_2"><br>
                 <label for="new_player">New Player</label>
-                <input type="checkbox" value="checked" name="new_player"><br>
+                <input type="checkbox" value="checked" name="category_3"><br>
                 <label for="software">Software</label>
-                <input type="checkbox" value="checked" name="software"><br>
+                <input type="checkbox" value="checked" name="category_4"><br>
                 <label for="strategy">Strategy</label>
-                <input type="checkbox" value="checked" name="strategy"><br>
+                <input type="checkbox" value="checked" name="category_5"><br>
                 <label for="streaming">Streaming</label>
-                <input type="checkbox" value="checked" name="streaming"><br>
+                <input type="checkbox" value="checked" name="category_6"><br>
                 <label for="tournaments">Tournaments</label>
-                <input type="checkbox" value="checked" name="tournaments"><br>
+                <input type="checkbox" value="checked" name="category_7"><br>
             </fieldset>
         </form>
     @else
-        <form id='update-guide-form' action='/editor/update-guide.php' method='post'>
+        <form id='update-guide-form' action='/guides/create' method='post'>
             @csrf
             <input type='hidden' name='description'>
             <input type='hidden' name='content'>

@@ -35,7 +35,7 @@ removeFormatContent.forEach((item) => {
 
 const postGuideForm = document.getElementById("post-guide-form")
 function postGuide() {
-    postGuideForm.title.value = guidePageTitle.textContent
+    postGuideForm.name.value = guidePageTitle.textContent
     postGuideForm.description.value = guidePageDescription.textContent
     postGuideForm.content.value = editor.root.innerHTML
     postGuideForm.submit()
