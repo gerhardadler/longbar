@@ -22,5 +22,7 @@ Route::get("/guides", [GuideController::class, "index"]);
 Route::get("/guides/create", [GuideController::class, "create"]);
 Route::post("/guides/create", [GuideController::class, "store"]);
 Route::get("/guides/{categories:slug}", [GuideController::class, "show"]);
+Route::get("/guides/{categories:slug}/edit", [GuideController::class, "edit"]);
+Route::post("/guides/{photo}", [GuideController::class, "update"]);
 
 Route::get("/{categories:slug}", [CategoryController::class, "show"]);

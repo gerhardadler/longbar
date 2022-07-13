@@ -31,7 +31,7 @@
         </div>
 
         <div class="guide-page-main-text">
-            {{ $guide["content"] }}
+            {!! $guide["content"] !!}
         </div>
     </div>
 </div>

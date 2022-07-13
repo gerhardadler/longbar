@@ -1,5 +1,9 @@
 @extends("layouts.app", ["is_editor" => TRUE])
 
+@section("title")
+{{ $name }}
+@endsection
+
 @section("style")
 <link rel="stylesheet" href="/css/sitewide.css">
 <link rel="stylesheet" href="/css/guide.css">
@@ -47,7 +51,7 @@
 </div>
 <div class="content">
     <div class="guide-page-content">
-        <h1 class="guide-page-title" contenteditable="true">{{ $title }}</h1>
+        <h1 class="guide-page-title" @if($is_new_guide) contenteditable="true" @endif>{{ $name }}</h1>
 
         <p class="guide-page-description" contenteditable="true">{{ $description}}</p>
 
@@ -61,7 +65,7 @@
             <div id="ql-editor">{!! $content !!}</div>
         </div>
     </div>
-    @isset($is_new_guide)
+    @if($is_new_guide)
         <form id="post-guide-form" action="/guides/create" method="post">
             @csrf
             <input type="hidden" name="name">
@@ -86,7 +90,7 @@
             </fieldset>
         </form>
     @else
-        <form id='update-guide-form' action='/guides/create' method='post'>
+        <form id='update-guide-form' action='/guides/{{ $guide["slug"] }}' method='post'>
             @csrf
             <input type='hidden' name='description'>
             <input type='hidden' name='content'>

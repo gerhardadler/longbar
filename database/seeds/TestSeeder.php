@@ -22,10 +22,10 @@ class TestSeeder extends Seeder
         Category::create(["name" => "Streaming", "slug" => "streaming", "description" => "This is the streaming description"]);
         Category::create(["name" => "Tournaments", "slug" => "tournaments", "description" => "This is the tournaments description"]);
 
-        Guide::create(["name" => "join communities", "slug" => "join-communities", "description" => "join communities description", "content" => "join communities content", "orig_version" => 1]);
-        Guide::create(["name" => "start streaming", "slug" => "start-streaming", "description" => "start streaming description", "content" => "start streaming content", "orig_version" => 1]);
-        Guide::create(["name" => "how to stack", "slug" => "how-to-stack", "description" => "how to stack description", "content" => "how to stack content", "orig_version" => 1]);
-        Guide::create(["name" => "learning spintucks", "slug" => "learning-spintucks", "description" => "learning spintucks description", "content" => "learning spintucks content", "orig_version" => 1]);
+        Guide::create(["name" => "join communities", "slug" => "join-communities", "description" => "join communities description", "content" => "join communities content"]);
+        Guide::create(["name" => "start streaming", "slug" => "start-streaming", "description" => "start streaming description", "content" => "start streaming content"]);
+        Guide::create(["name" => "how to stack", "slug" => "how-to-stack", "description" => "how to stack description", "content" => "how to stack content"]);
+        Guide::create(["name" => "learning spintucks", "slug" => "learning-spintucks", "description" => "learning spintucks description", "content" => "learning spintucks content"]);
 
         Guide::find(1)->categories()->attach([3, 7]);
         Guide::find(2)->categories()->attach([3, 4, 6]);

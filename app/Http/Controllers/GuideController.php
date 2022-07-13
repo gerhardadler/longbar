@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 
 
 use App\Guide;
+use App\GuideBackup;
 use App\Category;
 
 class GuideController extends Controller
@@ -39,7 +40,6 @@ class GuideController extends Controller
             $guide->slug = Str::slug($request->input("name"), "-");
             $guide->description = $request->input("description");
             $guide->content = $request->input("content"); // TODO: protect against script tags
-            $guide->orig_version = TRUE;
             $guide->save();
 
             $category_array = [];
@@ -48,6 +48,7 @@ class GuideController extends Controller
                     $category_array[] = $id;
                 }
             }
+            $guide->categories()->attach($category_array);
 
             return $category_array;
         } catch(\Exception $e) { // In case someone posts a guide with an existing name
@@ -55,5 +56,27 @@ class GuideController extends Controller
                 return "Your title is too similar to an existing title.";
             }
         }
+    }
+
+    public function edit($slug) {
+        $guide = Guide::where("slug", $slug)->firstOrFail();
+        $guide["slug"] = $slug;
+        return view("guides.edit", ["guide" => $guide]);
+    }
+
+    public function update(Request $request, $slug) {
+        $guide = Guide::where("slug", $slug)->first();
+
+        $guide_backup = new GuideBackup;
+        $guide_backup->name = $guide->name;
+        $guide_backup->description = $guide->description;
+        $guide_backup->content = $guide->content; // TODO: protect against script tags
+        $guide_backup->save();
+
+        $guide->name = $guide->name;
+        $guide->slug = Str::slug($request->input("name"), "-");
+        $guide->description = $request->input("description");
+        $guide->content = $request->input("content"); // TODO: protect against script tags
+        $guide->save();
     }
 }
