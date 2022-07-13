@@ -57,7 +57,10 @@
 
         <div class="guide-page-info">
             By: *Insert author here*<br>
-            Published: <time datetime="{{ $publish_time }}">{{ $publish_time }}</time><br>
+            Published: <time datetime="{{ $publish_time }}">{{ $publish_time->format("j. M Y") }}</time><br>
+            @if($edit_time != $publish_time)
+            Edited: <time datetime="{{ $edit_time }}">{{ $edit_time->format("j. M Y") }}</time><br>
+            @endif
             <a class="hover-link" href="#" onclick="alert('Youre working on the guide dumbass')" id="fb_share"><i class="fa-brands fa-facebook-square"></i> Share on Facebook</a>
         </div>
 

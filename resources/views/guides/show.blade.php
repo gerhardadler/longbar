@@ -20,7 +20,10 @@
 
         <div class="guide-page-info">
             By: Clint Eastwood<br>
-            Published: <time datetime="Insert time here">Insert time here</time><br>
+            Published: <time datetime="{{ $guide["created_at"] }}">{{ $guide["created_at"]->format("j. M Y") }}</time><br>
+            @if($guide["created_at"] != $guide["updated_at"])
+            Edited: <time datetime="{{ $guide["updated_at"] }}">{{ $guide["updated_at"]->format("j. M Y") }}</time><br>
+            @endif
             <a class="hover-link" href="" id="fb_share" target="_blank"><i class="fa-brands fa-facebook-square"></i> Share on Facebook</a>
 
             <script>

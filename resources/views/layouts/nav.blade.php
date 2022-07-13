@@ -3,7 +3,7 @@
     <a class="hamburger"><img src="/img/hamburger.svg" alt=""></a>
     <ul class="navlinks">
         <li class="dropdown-container">
-            <a class="hover-link" href="/categories">Guides</a>
+            <a class="hover-link" href="/guides">Guides</a>
             <div class="dropdown-guides">
                 <div><a class="hover-link" href="/equipment">Equipment</a></div>
                 <div><a class="hover-link" href="/history">History</a></div>
