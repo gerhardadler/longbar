@@ -74,7 +74,7 @@ class GuideController extends Controller
         $guide_backup->save();
 
         $guide->name = $guide->name;
-        $guide->slug = Str::slug($request->input("name"), "-");
+        $guide->slug = Str::slug($guide->name, "-");
         $guide->description = $request->input("description");
         $guide->content = $request->input("content"); // TODO: protect against script tags
         $guide->save();
