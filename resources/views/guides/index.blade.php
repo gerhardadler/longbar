@@ -5,7 +5,6 @@ Guides
 @endsection
 
 @section("style")
-<link rel="stylesheet" href="/css/sitewide.css">
 <link rel="stylesheet" href="/css/guides-and-category.css">
 @endsection
 

@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="https://use.typekit.net/vkg1ncc.css"> <!-- Museo Slab Serif -->
         
+        <link rel="stylesheet" href="/css/sitewide.css">
         @yield("style")
         
         <script defer type="text/javascript" src="/js/script.js"></script>

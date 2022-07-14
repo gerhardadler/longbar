@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 
 use App\Guide;
@@ -18,6 +19,10 @@ class GuideController extends Controller
      * @param  Request  $request
      * @return Response
      */
+
+    public function __construct() {
+        $this->middleware('auth', ['except' => ["index", "show"]]);
+    }
 
     public function index() {
         $guides = Guide::select("name", "description", "slug")->take(20)->get();
@@ -50,6 +55,8 @@ class GuideController extends Controller
             }
             $guide->categories()->attach($category_array);
 
+            $guide->users()->attach(Auth::id(), ['orig_author' => TRUE]);
+
             return $category_array;
         } catch(\Exception $e) { // In case someone posts a guide with an existing name
             if($e->getCode() == 23000) {
@@ -78,5 +85,7 @@ class GuideController extends Controller
         $guide->description = $request->input("description");
         $guide->content = $request->input("content"); // TODO: protect against script tags
         $guide->save();
+
+        $guide->users()->attach(Auth::id(), ['orig_author' => FALSE]);
     }
 }
