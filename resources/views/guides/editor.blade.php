@@ -1,7 +1,7 @@
 @extends("layouts.app", ["is_editor" => TRUE])
 
 @section("title")
-{{ $name }}
+{{ $guide["name"] }}
 @endsection
 
 @section("style")
@@ -50,16 +50,19 @@
 </div>
 <div class="content">
     <div class="guide-page-content">
-        <h1 class="guide-page-title" @if($is_new_guide) contenteditable="true" @endif>{{ $name }}</h1>
+        <h1 class="guide-page-title" @if($guide["is_new_guide"]) contenteditable="true" @endif>{{ $guide["name"] }}</h1>
 
-        <p class="guide-page-description" contenteditable="true">{{ $description}}</p>
+        <p class="guide-page-description" contenteditable="true">{{ $guide["description"]}}</p>
 
         <div class="guide-page-info">
-            By: *Insert author here*<br>
-            @isset($publish_time)
-                Published: <time datetime="{{ $publish_time }}">{{ $publish_time->format("j. M Y") }}</time><br>
-                @if($edit_time != $publish_time)
-                Edited: <time datetime="{{ $edit_time }}">{{ $edit_time->format("j. M Y") }}</time><br>
+            Author: {{ $guide["author"] }}<br>
+            @isset($guide["editors"])
+            Editors: {{ $guide["editors"] }}<br>
+            @endisset
+            @isset($guide["created_at"])
+                Published: <time datetime="{{ $guide["created_at"] }}">{{ $guide["created_at"]->format("j. M Y") }}</time><br>
+                @if($guide["updated_at"] != $guide["created_at"])
+                Edited: <time datetime="{{ $guide["updated_at"] }}">{{ $guide["updated_at"]->format("j. M Y") }}</time><br>
                 @endif
             @else
                 Published: Not yet published<br>
@@ -68,10 +71,10 @@
         </div>
 
         <div class="guide-page-main-text">
-            <div id="ql-editor">{!! $content !!}</div>
+            <div id="ql-editor">{!! $guide["content"] !!}</div>
         </div>
     </div>
-    @if($is_new_guide)
+    @if($guide{"is_new_guide"})
         <form id="post-guide-form" action="/guides/create" method="post">
             @csrf
             <input type="hidden" name="name">

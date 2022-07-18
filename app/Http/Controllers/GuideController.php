@@ -35,7 +35,14 @@ class GuideController extends Controller
     }
 
     public function create() {
-        return view("guides.create");
+        $guide = [
+            "name" => "Write your title here",
+            "description" => "Write your description here",
+            "author" => Auth::user()["name"],
+            "content" => "<p>Write your content here</p>",
+            "is_new_guide" => TRUE
+        ];
+        return view("guides.editor", ["guide" => $guide]);
     }
 
     public function store(Request $request) {
@@ -68,7 +75,19 @@ class GuideController extends Controller
     public function edit($slug) {
         $guide = Guide::where("slug", $slug)->firstOrFail();
         $guide["slug"] = $slug;
-        return view("guides.edit", ["guide" => $guide]);
+        $guide["author"] = $guide->users()->where("orig_author", TRUE)->first()->name;
+        $guide["editors"] = "";
+        $first_iteration = TRUE;
+        foreach ($guide->users()->where("orig_author", FALSE)->get() as $editor) {
+            if ($first_iteration) {
+                $guide["editors"] .= $editor->name;
+                $first_iteration = FALSE;
+            } else {
+                $guide["editors"] .= ", " . $editor->name;
+            }
+        }
+        $guide["is_new_guide"] = FALSE;
+        return view("guides.editor", ["guide" => $guide]);
     }
 
     public function update(Request $request, $slug) {
