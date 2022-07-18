@@ -31,6 +31,15 @@ class GuideController extends Controller
 
     public function show($slug) {
         $guide = Guide::where("slug", $slug)->firstOrFail();
+        $guide["author"] = $guide->users()->where("orig_author", TRUE)->first()->name;
+        $editors = [];
+        $first_iteration = TRUE;
+        foreach ($guide->users()->where("orig_author", FALSE)->get() as $editor) {
+            if (($editor->name !== $guide["author"]) && (!in_array($editor->name, $editors))) {
+                $editors[] = $editor->name;
+            }
+        }
+        $guide["editors"] = !empty($editors) ? implode(", ", $editors) : NULL;
         return view("guides.show", ["guide" => $guide]);
     }
 
@@ -76,16 +85,14 @@ class GuideController extends Controller
         $guide = Guide::where("slug", $slug)->firstOrFail();
         $guide["slug"] = $slug;
         $guide["author"] = $guide->users()->where("orig_author", TRUE)->first()->name;
-        $guide["editors"] = "";
+        $editors = [];
         $first_iteration = TRUE;
         foreach ($guide->users()->where("orig_author", FALSE)->get() as $editor) {
-            if ($first_iteration) {
-                $guide["editors"] .= $editor->name;
-                $first_iteration = FALSE;
-            } else {
-                $guide["editors"] .= ", " . $editor->name;
+            if (($editor->name !== $guide["author"]) && (!in_array($editor->name, $editors))) {
+                $editors[] = $editor->name;
             }
         }
+        $guide["editors"] = !empty($editors) ? implode(", ", $editors) : NULL;
         $guide["is_new_guide"] = FALSE;
         return view("guides.editor", ["guide" => $guide]);
     }

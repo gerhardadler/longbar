@@ -18,7 +18,10 @@
         </p>
 
         <div class="guide-page-info">
-            By: Clint Eastwood<br>
+            Author: {{ $guide["author"] }}<br>
+            @isset($guide["editors"])
+            Editors: {{ $guide["editors"] }}<br>
+            @endisset
             Published: <time datetime="{{ $guide["created_at"] }}">{{ $guide["created_at"]->format("j. M Y") }}</time><br>
             @if($guide["created_at"] != $guide["updated_at"])
             Edited: <time datetime="{{ $guide["updated_at"] }}">{{ $guide["updated_at"]->format("j. M Y") }}</time><br>
