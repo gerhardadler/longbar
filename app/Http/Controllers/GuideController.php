@@ -13,13 +13,6 @@ use App\Category;
 
 class GuideController extends Controller
 {
-    /**
-     * Store a new user.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-
     public function __construct() {
         $this->middleware('auth', ['except' => ["index", "show"]]);
     }
@@ -55,30 +48,32 @@ class GuideController extends Controller
     }
 
     public function store(Request $request) {
-        try {
-            $guide = new Guide;
-            $guide->name = $request->input("name");
-            $guide->slug = Str::slug($request->input("name"), "-");
-            $guide->description = $request->input("description");
-            $guide->content = $request->input("content"); // TODO: protect against script tags
-            $guide->save();
+        $request['slug'] = Str::slug($request->name, '-');
+        $request->validate([
+            'name' => 'required|max:50',
+            "slug" => "required|unique:guides",
+            "description" => 'required|max:200',
+            'content' => 'required|max:16777215',
+            "category" => "required"
+        ],
+        [
+            "slug.unique" => "That title is already taken.",
+            "content.max" => "The content cannot exceed 16 MB. Remove or compress images to meet that limitation.",
+            "category.required" => "You must select at least one category for your guide."
+        ]);
 
-            $category_array = [];
-            for($id = 1; $id <= 7; $id++) {
-                if($request->has("category_$id")) {
-                    $category_array[] = $id;
-                }
-            }
-            $guide->categories()->attach($category_array);
+        $guide = new Guide;
+        $guide->name = $request->name;
+        $guide->slug = $request->slug;
+        $guide->description = $request->description;
+        $guide->content = $request->content; // TODO: protect against script tags
+        $guide->save();
 
-            $guide->users()->attach(Auth::id(), ['orig_author' => TRUE]);
+        $guide->categories()->attach($request->category);
 
-            return $category_array;
-        } catch(\Exception $e) { // In case someone posts a guide with an existing name
-            if($e->getCode() == 23000) {
-                return "Your title is too similar to an existing title.";
-            }
-        }
+        $guide->users()->attach(Auth::id(), ['orig_author' => TRUE]);
+
+        return $category_array;
     }
 
     public function edit($slug) {

@@ -82,20 +82,13 @@
             <input type="hidden" name="content">
             <fieldset>
                 <legend>Choose the categories the guide falls in to</legend>
-                <label for="equipment">Equipment</label>
-                <input type="checkbox" value="checked" name="category_1"><br>
-                <label for="history">History</label>
-                <input type="checkbox" value="checked" name="category_2"><br>
-                <label for="new_player">New Player</label>
-                <input type="checkbox" value="checked" name="category_3"><br>
-                <label for="software">Software</label>
-                <input type="checkbox" value="checked" name="category_4"><br>
-                <label for="strategy">Strategy</label>
-                <input type="checkbox" value="checked" name="category_5"><br>
-                <label for="streaming">Streaming</label>
-                <input type="checkbox" value="checked" name="category_6"><br>
-                <label for="tournaments">Tournaments</label>
-                <input type="checkbox" value="checked" name="category_7"><br>
+                @php
+                    $category_names = ["Equipment", "History", "New player", "Software", "Strategy", "Streaming", "Tournaments"];
+                @endphp
+                @for($id = 1; $id <= 7; $id++)
+                    <input type="checkbox" name="category[]" id="check-box-{{ $id }}" value="{{ $id }}">
+                    <label for="check-box-{{ $id }}">{{ $category_names[$id-1] }}</label><br>
+                @endfor
             </fieldset>
         </form>
     @else
@@ -105,6 +98,14 @@
             <input type='hidden' name='content'>
             <input type='hidden' name='guide_id' value='$guide_id'>
         </form>
+    @endif
+    @if($errors->count() > 0)
+        <p>These errors occured:</p>
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
     @endif
 </div>
 @endsection
