@@ -48,12 +48,19 @@ class GuideController extends Controller
     }
 
     public function store(Request $request) {
+        error_log($request->content);
         $request['slug'] = Str::slug($request->name, '-');
         $request->validate([
             'name' => 'required|max:50',
             "slug" => "required|unique:guides",
             "description" => 'required|max:200',
-            'content' => 'required|max:16777215',
+            'content' => ['required', "max:16777215", 
+                function ($attribute, $value, $fail) {
+                    if (preg_match("/<script *>/", $value)) {
+                        $fail("Don't include script tags (\"<script>\") in the content.");
+                    }
+                },
+            ],
             "category" => "required"
         ],
         [
@@ -72,8 +79,6 @@ class GuideController extends Controller
         $guide->categories()->attach($request->category);
 
         $guide->users()->attach(Auth::id(), ['orig_author' => TRUE]);
-
-        return $category_array;
     }
 
     public function edit($slug) {

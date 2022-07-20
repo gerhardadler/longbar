@@ -50,9 +50,9 @@
 </div>
 <div class="content">
     <div class="guide-page-content">
-        <h1 class="guide-page-title" @if($guide["is_new_guide"]) contenteditable="true" @endif>{{ $guide["name"] }}</h1>
+        <h1 class="guide-page-title" @if($guide["is_new_guide"]) contenteditable="true" @endif>{{ old("name", $guide["name"]) }}</h1>
 
-        <p class="guide-page-description" contenteditable="true">{{ $guide["description"]}}</p>
+        <p class="guide-page-description" contenteditable="true">{{ old("description", $guide["description"]) }}</p>
 
         <div class="guide-page-info">
             Author: {{ $guide["author"] }}<br>
@@ -71,7 +71,7 @@
         </div>
 
         <div class="guide-page-main-text">
-            <div id="ql-editor">{!! $guide["content"] !!}</div>
+            <div id="ql-editor">{!! old("content", $guide["content"]) !!}</div>
         </div>
     </div>
     @if($guide{"is_new_guide"})
@@ -86,7 +86,7 @@
                     $category_names = ["Equipment", "History", "New player", "Software", "Strategy", "Streaming", "Tournaments"];
                 @endphp
                 @for($id = 1; $id <= 7; $id++)
-                    <input type="checkbox" name="category[]" id="check-box-{{ $id }}" value="{{ $id }}">
+                    <input type="checkbox" name="category[]" id="check-box-{{ $id }}" value="{{ $id }}" {{ (is_array(old("category")) && in_array($id, old("category"))) ? "checked" : "" }}>
                     <label for="check-box-{{ $id }}">{{ $category_names[$id-1] }}</label><br>
                 @endfor
             </fieldset>
