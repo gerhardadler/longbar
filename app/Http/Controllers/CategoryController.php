@@ -8,8 +8,7 @@ use App\Category;
 
 class CategoryController extends Controller
 {
-    public function show($slug) {
-        $category = Category::where("slug", $slug)->firstOrFail();
+    public function show(Category $category) {
         return view("categories.show", ["category" => $category]);
     }
 }

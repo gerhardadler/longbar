@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Guide;
+use App\Category;
+
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\CategoryController;
 
@@ -25,8 +28,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get("/guides", [GuideController::class, "index"]);
 Route::get("/guides/create", [GuideController::class, "create"]);
 Route::post("/guides/create", [GuideController::class, "store"]);
-Route::get("/guides/{categories:slug}", [GuideController::class, "show"]);
-Route::get("/guides/{categories:slug}/edit", [GuideController::class, "edit"]);
-Route::post("/guides/{categories:slug}", [GuideController::class, "update"]);
+Route::get("/guides/{guide:slug}", [GuideController::class, "show"]);
+Route::get("/guides/{guide:slug}/edit", [GuideController::class, "edit"]);
+Route::post("/guides/{guide:slug}", [GuideController::class, "update"]);
+// Route::get("/user/{user:slug}/guides/{guide:slug}/edit");
 
-Route::get("/{categories:slug}", [CategoryController::class, "show"]);
+Route::get("/{category:slug}", [CategoryController::class, "show"]);

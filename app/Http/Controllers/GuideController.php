@@ -22,8 +22,7 @@ class GuideController extends Controller
         return view("guides.index", ["guides" => $guides]);
     }
 
-    public function show($slug) {
-        $guide = Guide::where("slug", $slug)->firstOrFail();
+    public function show(Guide $guide) {
         $guide["author"] = $guide->users()->where("orig_author", TRUE)->first()->name;
         $editors = [];
         $first_iteration = TRUE;
@@ -73,7 +72,7 @@ class GuideController extends Controller
         $guide->name = $request->name;
         $guide->slug = $request->slug;
         $guide->description = $request->description;
-        $guide->content = $request->content; // TODO: protect against script tags
+        $guide->content = $request->content;
         $guide->save();
 
         $guide->categories()->attach($request->category);
@@ -81,9 +80,7 @@ class GuideController extends Controller
         $guide->users()->attach(Auth::id(), ['orig_author' => TRUE]);
     }
 
-    public function edit($slug) {
-        $guide = Guide::where("slug", $slug)->firstOrFail();
-        $guide["slug"] = $slug;
+    public function edit(Guide $guide) {
         $guide["author"] = $guide->users()->where("orig_author", TRUE)->first()->name;
         $editors = [];
         $first_iteration = TRUE;
@@ -97,9 +94,7 @@ class GuideController extends Controller
         return view("guides.editor", ["guide" => $guide]);
     }
 
-    public function update(Request $request, $slug) {
-        $guide = Guide::where("slug", $slug)->first();
-
+    public function update(Request $request, Guide $guide) {
         $guide_backup = new GuideBackup;
         $guide_backup->name = $guide->name;
         $guide_backup->description = $guide->description;
