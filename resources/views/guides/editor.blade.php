@@ -96,7 +96,6 @@
             @csrf
             <input type='hidden' name='description'>
             <input type='hidden' name='content'>
-            <input type='hidden' name='guide_id' value='$guide_id'>
         </form>
     @endif
     @if($errors->count() > 0)
