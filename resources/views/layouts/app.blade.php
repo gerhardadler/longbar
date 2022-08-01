@@ -13,6 +13,7 @@
             <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.snow.css"> <!-- Quill Theme included stylesheets -->
             <link rel="stylesheet" href="/css/snow-customisation.css">
 
+            <script src="https://unpkg.com/quill-image-compress@1.2.11/dist/quill.imageCompressor.min.js"></script> <!-- Compress images -->
             <script defer src="//cdn.quilljs.com/1.3.6/quill.js"></script>
             <script defer type="text/javascript" src="/js/editor.js"></script>
         @endisset

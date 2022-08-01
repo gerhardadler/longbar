@@ -4,9 +4,17 @@ const guidePageDescription =  document.getElementsByClassName("guide-page-descri
 var editField = document.getElementById("ql-editor")
 var toolbar = document.getElementById("toolbar")
 
+Quill.register("modules/imageCompressor", imageCompressor);
+
 var editor = new Quill("#ql-editor", {
     modules: {
-        toolbar: "#toolbar-main"
+        toolbar: "#toolbar-main",
+        imageCompressor: {
+            quality: 0.4,
+            maxWidth: 1000, // default
+            maxHeight: 1000, // default
+            imageType: 'image/jpeg'
+        }
     },
     theme: "snow"
 })
