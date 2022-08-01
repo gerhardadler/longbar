@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\Guide;
+use App\UnfinishedGuide;
 use App\GuideBackup;
 use App\Category;
 
@@ -47,8 +48,7 @@ class GuideController extends Controller
     }
 
     public function store(Request $request) {
-        error_log($request->content);
-        $request['slug'] = Str::slug($request->name, '-');
+        $request["slug"] = Str::slug($request->name, '-');
         $request->validate([
             'name' => 'required|max:50',
             "slug" => "required|unique:guides",
@@ -68,16 +68,25 @@ class GuideController extends Controller
             "category.required" => "You must select at least one category for your guide."
         ]);
 
-        $guide = new Guide;
-        $guide->name = $request->name;
-        $guide->slug = $request->slug;
-        $guide->description = $request->description;
-        $guide->content = $request->content;
-        $guide->save();
+        if ($request->to_publish) {
+            $guide = new Guide;
+            $guide->name = $request->name;
+            $guide->slug = $request->slug;
+            $guide->description = $request->description;
+            $guide->content = $request->content;
+            $guide->save();
 
-        $guide->categories()->attach($request->category);
-
-        $guide->users()->attach(Auth::id(), ['orig_author' => TRUE]);
+            $guide->users()->attach(Auth::id(), ['orig_author' => TRUE]);
+            $guide->categories()->attach($request->category);
+        } else {
+            $unfinished_guide = new UnfinishedGuide;
+            $unfinished_guide->name = $request->name;
+            $unfinished_guide->slug = $request->slug;
+            $unfinished_guide->description = $request->description;
+            $unfinished_guide->content = $request->content;
+            $unfinished_guide->user_id = Auth::id();
+            $unfinished_guide->save();
+        }
     }
 
     public function edit(Guide $guide) {

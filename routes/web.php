@@ -31,6 +31,6 @@ Route::post("/guides/create", [GuideController::class, "store"]);
 Route::get("/guides/{guide:slug}", [GuideController::class, "show"]);
 Route::get("/guides/{guide:slug}/edit", [GuideController::class, "edit"]);
 Route::post("/guides/{guide:slug}", [GuideController::class, "update"]);
-// Route::get("/user/{user:slug}/guides/{guide:slug}/edit");
+Route::get("/user/{user:slug}/guides/{guide:slug}/edit");
 
 Route::get("/{category:slug}", [CategoryController::class, "show"]);

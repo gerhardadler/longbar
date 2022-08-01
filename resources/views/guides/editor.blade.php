@@ -80,6 +80,7 @@
             <input type="hidden" name="name">
             <input type="hidden" name="description">
             <input type="hidden" name="content">
+            <input type="hidden" name="to_publish">
             <fieldset>
                 <legend>Choose the categories the guide falls in to</legend>
                 @php
