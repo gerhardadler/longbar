@@ -42,12 +42,12 @@ removeFormatContent.forEach((item) => {
 })
 
 const postGuideForm = document.getElementById("post-guide-form")
-function postGuide(to_publish = false) {
-    postGuideForm.name.value = guidePageTitle.textContent
-    postGuideForm.description.value = guidePageDescription.textContent
-    postGuideForm.content.value = editor.root.innerHTML
-    postGuideForm.to_publish.value = to_publish ? "1" : "0"
-    postGuideForm.submit()
+if (postGuideForm) {
+    postGuideForm.addEventListener("submit", () => {
+        postGuideForm.name.value = guidePageTitle.textContent
+        postGuideForm.description.value = guidePageDescription.textContent
+        postGuideForm.content.value = editor.root.innerHTML
+    })
 }
 
 const updateGuideForm = document.getElementById("update-guide-form")

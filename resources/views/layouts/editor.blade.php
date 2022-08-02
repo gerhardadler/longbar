@@ -67,38 +67,14 @@
             @else
                 Published: Not yet published<br>
             @endisset
-            <a class="hover-link" href="#" onclick="alert('Youre working on the guide dumbass')" id="fb_share"><i class="fa-brands fa-facebook-square"></i> Share on Facebook</a>
+            <a class="hover-link" href="#" onclick="alert('You\'re working on the guide dumbass')" id="fb_share"><i class="fa-brands fa-facebook-square"></i> Share on Facebook</a>
         </div>
 
         <div class="guide-page-main-text">
             <div id="ql-editor">{!! old("content", $guide["content"]) !!}</div>
         </div>
     </div>
-    @if($guide{"is_new_guide"})
-        <form id="post-guide-form" action="/guides/create" method="post">
-            @csrf
-            <input type="hidden" name="name">
-            <input type="hidden" name="description">
-            <input type="hidden" name="content">
-            <input type="hidden" name="to_publish">
-            <fieldset>
-                <legend>Choose the categories the guide falls in to</legend>
-                @php
-                    $category_names = ["Equipment", "History", "New player", "Software", "Strategy", "Streaming", "Tournaments"];
-                @endphp
-                @for($id = 1; $id <= 7; $id++)
-                    <input type="checkbox" name="category[]" id="check-box-{{ $id }}" value="{{ $id }}" {{ (is_array(old("category")) && in_array($id, old("category"))) ? "checked" : "" }}>
-                    <label for="check-box-{{ $id }}">{{ $category_names[$id-1] }}</label><br>
-                @endfor
-            </fieldset>
-        </form>
-    @else
-        <form id='update-guide-form' action='/guides/{{ $guide["slug"] }}' method='post'>
-            @csrf
-            <input type='hidden' name='description'>
-            <input type='hidden' name='content'>
-        </form>
-    @endif
+    @yield("forms")
     @if($errors->count() > 0)
         <p>These errors occured:</p>
         <ul>

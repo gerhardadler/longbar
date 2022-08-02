@@ -44,7 +44,7 @@ class GuideController extends Controller
             "content" => "<p>Write your content here</p>",
             "is_new_guide" => TRUE
         ];
-        return view("guides.editor", ["guide" => $guide]);
+        return view("guides.create", ["guide" => $guide]);
     }
 
     public function store(Request $request) {
@@ -68,7 +68,7 @@ class GuideController extends Controller
             "category.required" => "You must select at least one category for your guide."
         ]);
 
-        if ($request->to_publish) {
+        if (strtolower($request->action) === "publish") {
             $guide = new Guide;
             $guide->name = $request->name;
             $guide->slug = $request->slug;
@@ -100,7 +100,7 @@ class GuideController extends Controller
         }
         $guide["editors"] = !empty($editors) ? implode(", ", $editors) : NULL;
         $guide["is_new_guide"] = FALSE;
-        return view("guides.editor", ["guide" => $guide]);
+        return view("guides.edit", ["guide" => $guide]);
     }
 
     public function update(Request $request, Guide $guide) {
