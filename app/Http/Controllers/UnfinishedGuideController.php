@@ -8,9 +8,21 @@ use Illuminate\Support\Facades\Auth;
 
 use App\UnfinishedGuide;
 use App\GuideBackup;
+use App\User;
 
 class UnfinishedGuideController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $unfinished_guides = User::find(Auth::id())->unfinishedGuides;
+        return view("unfinished_guides.index", ["guides" => $unfinished_guides]);
+    }
+
     public function edit(UnfinishedGuide $unfinished_guide)
     {
         $unfinished_guide["author"] = Auth::user()["name"];

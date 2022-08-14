@@ -22,6 +22,7 @@ Route::post("/guides/create", [GuideController::class, "store"]);
 Route::get("/guides/{guide:slug}", [GuideController::class, "show"]);
 Route::get("/guides/{guide:slug}/edit", [GuideController::class, "edit"]);
 Route::post("/guides/{guide:slug}", [GuideController::class, "update"]);
+Route::get("/unfinished-guides", [UnfinishedGuideController::class, "index"]);
 Route::get("/unfinished-guides/{unfinished_guide:slug}/edit", [UnfinishedGuideController::class, "edit"]);
 Route::post("/unfinished-guides/{unfinished_guide:slug}", [UnfinishedGuideController::class, "update"]);
 

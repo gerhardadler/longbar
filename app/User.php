@@ -37,7 +37,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function guides() {
+    public function guides()
+    {
         return $this->belongsToMany('App\Guide')->withTimestamps();
+    }
+
+    public function unfinishedGuides()
+    {
+        return $this->hasMany('App\UnfinishedGuide');
     }
 }
