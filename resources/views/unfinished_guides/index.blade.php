@@ -11,7 +11,7 @@ Unfinished Guides
 @section("content")
 <div class="content-darker">
     
-    <h1 class="blue">Your Guides</h1>
+    <h1>Your Guides</h1>
     
     <div class="guides-container">
     @foreach($guides as $guide)

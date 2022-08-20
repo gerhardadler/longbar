@@ -20,12 +20,18 @@
                 <a class="hover-link" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
+                    Logout
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
                 </form>
+            </li>
+        @else
+            <li>
+                <a href="{{ route("login") }}" class="hover-link">
+                    Login
+                </a>
             </li>
         @endauth
     </ul>

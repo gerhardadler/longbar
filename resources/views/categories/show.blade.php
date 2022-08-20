@@ -11,7 +11,7 @@
 @section("content")
 <div class="content-darker">
     
-    <h1 class="blue">{{ $category["name"] }}</h1>
+    <h1>{{ $category["name"] }}</h1>
     
     <p class="category-description">
         {{ $category["description"] }}

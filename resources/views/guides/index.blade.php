@@ -11,7 +11,7 @@ Guides
 @section("content")
 <div class="content-darker">
     
-    <h1 class="blue">Our Guides</h1>
+    <h1>Our Guides</h1>
     <h2>Categories</h2>
     <div class="categories">
             <a href="/equipment" class="category">Equipment</a>

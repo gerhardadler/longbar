@@ -14,12 +14,12 @@ Longbar.org
     <div class="index-container">
         <div>
             <h1>
-                <span class="blue-title">Learn</span><br>
+                Learn<br>
                 NES Tetris
             </h1>
             <p class="site-description">
                 Tetris is a block stacking game for anyone. Easy to learn, hard to master.
-                <span class="blue"> We have free guides from beginner to advanced.</span>
+                <span style="color: var(--accent-text-color-2)"> We have free guides from beginner to advanced.</span>
             </p>
         </div>
         

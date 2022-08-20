@@ -17,6 +17,15 @@
 
 /* !important is used to not let quill overwrite styling */
 
+p {
+    font-size: 1.15rem !important;
+    /* To not let Quill mess up margins */
+    margin-block-start: 1em !important;
+    margin-block-end: 1em !important;
+    margin-inline-start: 0px !important;
+    margin-inline-end: 0px !important;
+}
+
 .guide-page-main-text {
     margin-top: 4rem !important;
 }
