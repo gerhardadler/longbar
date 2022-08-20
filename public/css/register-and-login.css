@@ -5,6 +5,7 @@ h1 {
 .description {
     margin-block-start: 0.2rem;
     margin-block-end: 1.7rem;
+    max-width: 32ch;
 }
 
 label {
@@ -53,6 +54,14 @@ label {
 .no-user-text {
     text-align: center;
     font-size: 1rem;
+}
+
+.error {
+    color: #b21313;
+    display: block;
+    margin-block-start: 0.5rem;
+    margin-block-end: 0.5rem;
+    max-width: 32ch;
 }
 
 /* Important is used because input[type=submit] has higher specificity than this class. */

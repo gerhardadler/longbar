@@ -7,7 +7,7 @@
 @section('content')
 <div class="content">
     <h1>Register</h1>
-    <p class="description">Register to write and publish guides!</p>
+    <p class="description">Register to write and publish guides! fewfewf fwef weffewf</p>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
