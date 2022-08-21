@@ -7,7 +7,7 @@
 @section('content')
 <div class="content">
     <h1>Register</h1>
-    <p class="description">Register to write and publish guides! fewfewf fwef weffewf</p>
+    <p class="description">Register to write and publish guides!</p>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -32,7 +32,7 @@
 
         <div class="input-and-info-container">
             <label for="password" >Password</label>
-            <input id="password" type="password" class="text-input" name="password" required autocomplete="current-password">
+            <input id="password" type="password" class="text-input" name="password" required autocomplete="new-password">
             @error('password')
                 <strong class="error">{{ $message }}</strong>
             @enderror
@@ -40,7 +40,7 @@
         
         <div class="input-and-info-container">
             <label for="password-confirm">Confirm Password</label>
-            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+            <input id="password-confirm" type="password" class="text-input" name="password_confirmation" required autocomplete="new-password">
         </div>
 
         <input type="submit" class="login-register-button" value="Register">
