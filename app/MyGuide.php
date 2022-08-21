@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UnfinishedGuide extends Model
+class MyGuide extends Model
 {
     public $timestamps = false;
 

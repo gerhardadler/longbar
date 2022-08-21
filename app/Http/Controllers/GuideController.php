@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 use App\Guide;
-use App\UnfinishedGuide;
+use App\MyGuide;
 use App\GuideBackup;
 use App\Category;
 
@@ -79,13 +79,13 @@ class GuideController extends Controller
             $guide->users()->attach(Auth::id(), ['orig_author' => TRUE]);
             $guide->categories()->attach($request->category);
         } else {
-            $unfinished_guide = new UnfinishedGuide;
-            $unfinished_guide->name = $request->name;
-            $unfinished_guide->slug = $request->slug;
-            $unfinished_guide->description = $request->description;
-            $unfinished_guide->content = $request->content;
-            $unfinished_guide->user_id = Auth::id();
-            $unfinished_guide->save();
+            $my_guide = new MyGuide;
+            $my_guide->name = $request->name;
+            $my_guide->slug = $request->slug;
+            $my_guide->description = $request->description;
+            $my_guide->content = $request->content;
+            $my_guide->user_id = Auth::id();
+            $my_guide->save();
         }
     }
 

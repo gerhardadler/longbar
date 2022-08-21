@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUnfinishedGuidesTable extends Migration
+class CreateMyGuidesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUnfinishedGuidesTable extends Migration
      */
     public function up()
     {
-        Schema::create('unfinished_guides', function (Blueprint $table) {
+        Schema::create('my_guides', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string("name", 50);
@@ -30,6 +30,6 @@ class CreateUnfinishedGuidesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unfinished_guides');
+        Schema::dropIfExists('my_guides');
     }
 }

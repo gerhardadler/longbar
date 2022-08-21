@@ -160,22 +160,26 @@ nav {
     position: relative;
 }
 
-.dropdown-guides {
+.dropdown {
+    position: absolute;
     display: none;
     padding-top: 1rem;
     padding-bottom: 0.5rem;
     transform: translateX(-1em);
-    position: absolute;
     background-color: var(--opposite-background-color);
     color: var(--opposite-text-color);
-    min-width: 10rem;
 }
 
-.dropdown-guides div {
+.dropdown-hug-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.dropdown div {
     padding: 0.7em 1em;
 }
 
-.dropdown-container:hover .dropdown-guides {
+.dropdown-container:hover .dropdown {
     display: block;
 }
 

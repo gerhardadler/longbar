@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("title")
-Unfinished Guides
+My Guides
 @endsection
 
 @section("style")
@@ -20,7 +20,7 @@ Unfinished Guides
             <div class="guide-main">
                 <h2>{{ $guide["name"] }}</h2>
                 <p>{{ $guide["description"] }}</p>
-                <a href="/unfinished-guides/{{ $guide["slug"] }}/edit" class="guide-button">Edit</a>
+                <a href="/my-guides/{{ $guide["slug"] }}/edit" class="guide-button">Edit</a>
             </div>
         </div>
     @endforeach

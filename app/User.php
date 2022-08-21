@@ -42,8 +42,8 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Guide')->withTimestamps();
     }
 
-    public function unfinishedGuides()
+    public function myGuides()
     {
-        return $this->hasMany('App\UnfinishedGuide');
+        return $this->hasMany('App\MyGuide');
     }
 }
