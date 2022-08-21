@@ -10,7 +10,12 @@ Longbar.org
 @endsection
 
 @section("content")
+
+
 <div class="content">
+    @if (session('status'))
+        {{ session('status') }}
+    @endif
     <div class="index-container">
         <div>
             <h1>
