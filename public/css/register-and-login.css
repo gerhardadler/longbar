@@ -1,0 +1,76 @@
+h1 {
+    margin-block-end: 0.2rem;
+}
+
+.description {
+    margin-block-start: 0.2rem;
+    margin-block-end: 1.7rem;
+    max-width: 32ch;
+}
+
+label {
+    font-size: 0.9rem;
+}
+
+.text-input {
+    width: 100%;
+    min-width: 32ch;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+}
+
+
+.content {
+    width: fit-content;
+}
+
+@media screen and (max-width: 350px) {
+    .text-input {
+        min-width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .content {
+        width: 90vw;
+    }
+}
+
+.input-and-info-container {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    margin-bottom: 1.2rem;
+}
+
+.forgot-password {
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.remember-me {
+    margin-bottom: 0.5rem;
+}
+
+.no-user-text {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.error {
+    color: #b21313;
+    display: block;
+    margin-block-start: 0.5rem;
+    margin-block-end: 0.5rem;
+    max-width: 32ch;
+}
+
+/* Important is used because input[type=submit] has higher specificity than this class. */
+.login-register-button {
+    display: block;
+    background: var(--accent-color-1) !important;
+    font-size: 1.2rem !important;
+    font-weight: bold !important;
+    text-align: center;
+    padding: 0.7em !important;
+    width: 100%;
+}
