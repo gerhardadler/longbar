@@ -19,8 +19,9 @@ class MyGuideController extends Controller
 
     public function index()
     {
-        $my_guides = User::find(Auth::id())->myGuides;
-        return view("my_guides.index", ["guides" => $my_guides]);
+        $guides = Auth::user()->myGuides;
+        $guides = $guides->merge(Auth::user()->Guides);
+        return view("my_guides.index", ["guides" => $guides]);
     }
 
     public function edit(MyGuide $my_guide)

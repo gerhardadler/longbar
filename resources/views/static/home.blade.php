@@ -30,7 +30,7 @@ Longbar.org
         
         <div>
             <h2 class="big-button-title">New to NES Tetris?</h2>
-            <a class="big-button" href="/guides/new-player">Go here</a>
+            <a class="big-button" href="/new-player">Go here</a>
 
             <h2 class="big-button-title">Browse our guides</h2>
             <a class="big-button" href="/guides">Go here</a>

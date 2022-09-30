@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 
 use App\Category;
 use App\Guide;
+use App\User;
 
 class TestSeeder extends Seeder
 {
@@ -22,6 +23,8 @@ class TestSeeder extends Seeder
         Category::create(["name" => "Streaming", "slug" => "streaming", "description" => "This is the streaming description"]);
         Category::create(["name" => "Tournaments", "slug" => "tournaments", "description" => "This is the tournaments description"]);
 
+        User::create(["name" => "Jonas", "slug" => "jonas", "email" => "jonas@jonas.net", "password" => "no"]);
+
         Guide::create(["name" => "join communities", "slug" => "join-communities", "description" => "join communities description", "content" => "join communities content"]);
         Guide::create(["name" => "start streaming", "slug" => "start-streaming", "description" => "start streaming description", "content" => "start streaming content"]);
         Guide::create(["name" => "how to stack", "slug" => "how-to-stack", "description" => "how to stack description", "content" => "how to stack content"]);
@@ -31,5 +34,10 @@ class TestSeeder extends Seeder
         Guide::find(2)->categories()->attach([3, 4, 6]);
         Guide::find(3)->categories()->attach([3, 5]);
         Guide::find(4)->categories()->attach([5]);
+
+        Guide::find(1)->users()->attach(1, ['orig_author' => TRUE]);
+        Guide::find(2)->users()->attach(1, ['orig_author' => TRUE]);
+        Guide::find(3)->users()->attach(1, ['orig_author' => TRUE]);
+        Guide::find(4)->users()->attach(1, ['orig_author' => TRUE]);
     }
 }
