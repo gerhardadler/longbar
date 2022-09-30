@@ -20,7 +20,7 @@ Longbar.org
         <div>
             <h1>
                 Learn<br>
-                The Best Tetris
+                NES Tetris
             </h1>
             <p class="site-description">
                 Tetris is a block stacking game for anyone. Easy to learn, hard to master.
