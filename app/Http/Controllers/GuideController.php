@@ -19,7 +19,7 @@ class GuideController extends Controller
     }
 
     public function index() {
-        $guides = Guide::select("name", "description", "slug")->take(20)->get();
+        $guides = Guide::select("name", "description", "slug")->take(20)->get(); // TODO - Lage flere sider for guides!
         return view("guides.index", ["guides" => $guides]);
     }
 
